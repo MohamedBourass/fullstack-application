@@ -1,0 +1,18 @@
+2025-05-18 17:59:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CAR" not found (this database is empty); SQL statement:
+select c1_0.id,c1_0.make,c1_0.model,c1_0.price from car c1_0 [42104-214]
+2025-05-18 17:59:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CAR" not found (this database is empty); SQL statement:
+select c1_0.id,c1_0.make,c1_0.model,c1_0.price from car c1_0 [42104-214]
+2025-05-18 18:00:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CAR" not found (this database is empty); SQL statement:
+select c1_0.id,c1_0.make,c1_0.model,c1_0.price from car c1_0 [42104-214]
+2025-05-18 18:00:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CAR" not found (this database is empty); SQL statement:
+insert into car (id, make, model, price) values (default, ?, ?, ?) [42104-214]
+2025-05-18 18:00:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CAR" not found (this database is empty); SQL statement:
+select c1_0.id,c1_0.make,c1_0.model,c1_0.price from car c1_0 [42104-214]
+2025-05-18 18:02:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CAR" not found (this database is empty); SQL statement:
+insert into car (id, make, model, price) values (default, ?, ?, ?) [42104-214]

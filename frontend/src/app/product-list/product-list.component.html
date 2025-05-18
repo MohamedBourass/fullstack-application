@@ -1,0 +1,35 @@
+<!--<h2>Products</h2>
+<div id="myGrid" style="height: 500px"></div>
+<div *ngFor="let product of products">
+
+  <h3>
+    <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+
+  <button type="button" (click)="share()">
+    Share
+  </button>
+</div>
+-->
+
+<!-- Highlight Card -->
+<br>
+<div class="card highlight-card card-small"> Table Grid </div>
+<br><br>
+
+<!-- Ag-Grid table  -->
+<ag-grid-angular
+  style="width: 500px; height: 500px;"
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [pagination]="true"
+  [rowDragManaged]="true"
+>
+</ag-grid-angular>
