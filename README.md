@@ -1,12 +1,20 @@
-To start the frontend on localhost:4200
+# FullStack application
 
-npm install
-npm start
+This app contains a frontend and backend application which both introduce a bunch of features which are commonly used by developers.
 
-The frontend is done with Angular 13
+## Frontend
 
-To start the backend on localhost:8080
+The frontend is done with Angular 13 + some plugins described [here](frontend).
 
-mvn spring-boot:run
+To start the frontend on localhost:4200, go to the frontend folder and run the commands below:
 
-The backend is done with Spring Boot 3 and Java 17
+- `npm install`
+- `npm start`
+
+## Backend
+
+The backend is done with Spring Boot 3 and Java 17 described [here](backend).
+
+To start the backend on localhost:8080, go to the backend folder and run the command below:
+
+`mvn spring-boot:run`
