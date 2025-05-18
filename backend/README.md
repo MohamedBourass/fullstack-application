@@ -11,4 +11,12 @@
 - TODO
 
 ## Spring Boot REST api examples
-- TODO
+- https://github.com/MiguelProgrammer/api-rest-v3/tree/main
+- https://tiagoamp.medium.com/rest-api-with-spring-boot-3-part-1-aeac7c795f62
+- https://github.com/pmoustopoulos/department-api
+- https://github.com/elirenato/secure-api-spring/tree/main
+- https://github.com/givanthak/spring-boot-rest-api-tutorial/tree/master
+- https://github.com/OKaluzny/spring-boot-rest-api-postgresql/tree/master
+- https://github.com/SumantaKS/Spring-Boot-3-REST-API
+- https://github.com/jj110178/SpringBootwith3rdPartyApi
+- https://github.com/bezkoder/spring-boot-3-rest-api-example

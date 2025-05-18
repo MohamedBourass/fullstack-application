@@ -1,6 +1,6 @@
 # FullStack application
 
-- This app contains a frontend and backend application which both introduce a bunch of features which are commonly used by developers.
+- This app contains a frontend and backend applications which both introduce a bunch of features which are commonly used by developers.
 
 ## Frontend
 

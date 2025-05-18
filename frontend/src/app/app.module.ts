@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -23,7 +23,7 @@ import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
     AppComponent,
     TopBarComponent,
     FooterComponent,
-    ProductListComponent,
+    UserListComponent,
     NavbarComponent,
     LoginComponent,
     RegisterComponent,

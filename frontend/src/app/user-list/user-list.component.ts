@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http'; // HTTP Client for making requests
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class ProductListComponent {
+export class UserListComponent {
   rowData: any;
 
   constructor(private http: HttpClient) { }
@@ -21,7 +21,7 @@ export class ProductListComponent {
 
 
     // reading row data from file
-    this.http.get("http://localhost:8080/api/cars").subscribe(data => {
+    this.http.get("http://localhost:8080/api/v1/users").subscribe(data => {
       this.rowData = data
     });
   }
@@ -29,14 +29,17 @@ export class ProductListComponent {
     // Column Definitions: Defines the columns to be displayed.
   columnDefs = [
     // sorting, groupings and other operations are done on the column headers
-    { headerName: 'Make', field: 'make',
+    /*{ headerName: 'Make', field: 'make',
       sortable: true,
       filter: true,
       checkboxSelection: true,
       width: 150,
       resizable: true
-    },
-    { headerName: 'Model', field: 'model', sortable: true, filter: true},
-    { headerName: 'Price', field: 'price', sortable: true, filter: true},
+    },*/
+    { headerName: 'ID', field: 'id', sortable: true, filter: true},
+    { headerName: 'FirstName', field: 'firstName', sortable: true, filter: true},
+    { headerName: 'LastName', field: 'lastName', sortable: true, filter: true},
+    { headerName: 'Email', field: 'email', sortable: true, filter: true},
+    { headerName: 'Creation Date', field: 'creationDate', sortable: true, filter: true}
   ]
 }
