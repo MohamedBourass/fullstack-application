@@ -1,4 +1,8 @@
-Showcases app based on database with people and groups managements or minimalist ads application!!
+# Frontend application
+
+- The aim of this frontend is to be a gallery of demos for the most interesting angular plugins for web developers.
+- This frontend application will interact with a REST api which is commonly called the backend.
+- By default, the frontend application runs on the URL [http://localhost:4200](http://localhost:4200)
 
 ## Useful Angular plugins 
 
