@@ -48,6 +48,7 @@ build/
 /bazel-out
 
 # dependencies
+/frontend/node_modules
 /node_modules
 
 # profiling files
@@ -71,6 +72,7 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
+/frontend/.angular/cache
 /.angular/cache
 /.sass-cache
 /connect.lock
