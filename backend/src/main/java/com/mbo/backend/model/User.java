@@ -18,19 +18,19 @@ import java.util.Date;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "firstname", nullable = false)
-    private String firstName;
+    @Column(name = "username", nullable = false)
+    private String username;
 
-    @Column(name = "lastname", nullable = false)
-    private String lastName;
+    @Column(name = "password", nullable = false)
+    private String password;
 
     @Column(name = "email", nullable = false)
     private String email;
 
-    @CreationTimestamp
+    /*@CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "creationdate", nullable = false)
     private Date creationDate;
@@ -42,5 +42,5 @@ public class User {
 
     @Column(name = "modifiedby", nullable = false)
     @LastModifiedBy
-    private String modifiedBy;
+    private String modifiedBy;*/
 }

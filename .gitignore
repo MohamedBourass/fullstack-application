@@ -48,7 +48,7 @@ build/
 /bazel-out
 
 # dependencies
-/frontend/node_modules
+/frontend/ui/node_modules
 /node_modules
 
 # profiling files
@@ -64,6 +64,7 @@ chrome-profiler-events*.json
 *.sublime-workspace
 
 # IDE - VSCode
+/frontend/ui/.vscode
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -72,8 +73,10 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
-/frontend/.angular/cache
+/frontend/ui/.angular/cache
 /.angular/cache
+/frontend/ui/node
+/frontend/ui/dist
 /.sass-cache
 /connect.lock
 /coverage

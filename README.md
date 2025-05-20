@@ -4,7 +4,7 @@
 
 ## Frontend
 
-- The frontend is done with Angular 13 + some plugins described [here](frontend).
+- The frontend is done with Angular + some plugins described [here](frontend).
 - To start the frontend on localhost:4200, go to the frontend folder and run the commands below:
 
 - `npm install`

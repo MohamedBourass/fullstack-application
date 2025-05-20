@@ -8,6 +8,7 @@
   <name>Fullstack application</name>
   <modules>
     <module>backend</module>
+    <module>frontend</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
