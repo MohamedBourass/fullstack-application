@@ -1,4 +1,4 @@
-package com.mbo.backend.service;
+/*package com.mbo.backend.service;
 
 import com.mbo.backend.model.User;
 import com.mbo.backend.repository.UserRepository;
@@ -46,4 +46,4 @@ public class UserService implements UserDetailsService {
                 .authorities("USER")
                 .build();
     }
-}
+}*/

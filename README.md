@@ -5,7 +5,7 @@
 ## Frontend
 
 - The frontend is done with Angular + some plugins described [here](frontend).
-- To start the frontend on localhost:4200, go to the frontend folder and run the commands below:
+- To start the frontend on localhost:4200, go to the frontend/ui folder and run the commands below:
 
 - `npm install`
 - `npm start`

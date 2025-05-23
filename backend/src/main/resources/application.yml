@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   application:
     name: fullstack-application
@@ -16,7 +19,8 @@ spring:
   jpa:
     hibernate:
       # Hibernate ddl auto (create, create-drop, validate, update)
-      ddl-auto: create
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
     #generate-ddl: true #why ?
     #properties:
     #  hibernate:
@@ -24,3 +28,6 @@ spring:
     #  ddl-auto: none #why ?
     #database-platform: org.hibernate.dialect.PostgreSQLDialect
     database-platform: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: always

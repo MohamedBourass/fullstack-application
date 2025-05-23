@@ -1,4 +1,4 @@
-package com.mbo.backend.controller;
+/*package com.mbo.backend.controller;
 
 import com.mbo.backend.model.User;
 import com.mbo.backend.service.UserService;
@@ -38,4 +38,4 @@ public class AuthController {
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
-}
+}*/
