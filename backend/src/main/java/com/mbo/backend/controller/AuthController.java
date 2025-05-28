@@ -1,41 +1,28 @@
-/*package com.mbo.backend.controller;
+package com.mbo.backend.controller;
 
 import com.mbo.backend.model.User;
-import com.mbo.backend.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.mbo.backend.service.AuthService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
+    private final AuthService authService;
 
-    private final UserService userService;
-
-    @Autowired
-    public AuthController(UserService userService) {
-        this.userService = userService;
+    public AuthController(AuthService authService) {
+        this.authService = authService;
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> registerUser(@RequestBody User
-
-                                                     user) {
-        if (userService.findByUsername(user.getUsername()).isPresent()) {
-            return ResponseEntity.badRequest().build();
-        }
-        return ResponseEntity.ok(userService.saveUser(user));
+    public ResponseEntity<User> register(@RequestBody User user) {
+        return ResponseEntity.ok(authService.register(user));
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<User> getCurrentUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentUsername = authentication.getName();
-        return userService.findByUsername(currentUsername)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.badRequest().build());
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
+        return authService.login(email, password)
+                .map(user -> ResponseEntity.ok("Connexion réussie"))
+                .orElse(ResponseEntity.status(401).body("Échec de connexion"));
     }
-}*/
+}

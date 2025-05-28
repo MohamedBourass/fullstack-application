@@ -7,14 +7,15 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'all', pathMatch: 'full' },
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'ag-grid', component: CountryListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'spreadsheet', component: SpreadsheetComponent },
+  { path: 'spreadsheet', component: SpreadsheetComponent }
   //{ path: 'svg', component: SvgComponent }
 ];
 
