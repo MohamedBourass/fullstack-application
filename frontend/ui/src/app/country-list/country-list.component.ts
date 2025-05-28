@@ -5,11 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http'; // HTTP Client for making requests
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+  selector: 'app-country-list',
+  templateUrl: './country-list.component.html',
+  styleUrls: ['./country-list.component.css']
 })
-export class UserListComponent {
+export class CountryListComponent {
   rowData: any;
 
   constructor(private http: HttpClient) { }
@@ -21,7 +21,7 @@ export class UserListComponent {
 
 
     // reading row data from file
-    this.http.get("http://localhost:8080/api/v1/users").subscribe(data => {
+    this.http.get("http://localhost:8080/api/v1/country").subscribe(data => {
       this.rowData = data
     });
   }
@@ -37,9 +37,9 @@ export class UserListComponent {
       resizable: true
     },*/
     { headerName: 'ID', field: 'id', sortable: true, filter: true},
-    { headerName: 'FirstName', field: 'firstName', sortable: true, filter: true},
-    { headerName: 'LastName', field: 'lastName', sortable: true, filter: true},
-    { headerName: 'Email', field: 'email', sortable: true, filter: true},
-    { headerName: 'Creation Date', field: 'creationDate', sortable: true, filter: true}
+    { headerName: 'Code', field: 'code', sortable: true, filter: true},
+    { headerName: 'Name', field: 'name', sortable: true, filter: true},
+    { headerName: 'Capital', field: 'capital', sortable: true, filter: true},
+    { headerName: 'Area', field: 'area', sortable: true, filter: true}
   ]
 }
