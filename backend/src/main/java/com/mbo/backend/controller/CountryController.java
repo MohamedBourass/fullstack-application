@@ -2,6 +2,7 @@ package com.mbo.backend.controller;
 
 import com.mbo.backend.model.Country;
 import com.mbo.backend.repository.CountryRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,4 +25,7 @@ public class CountryController {
     List<Country> all() {
         return repository.findAll();
     }
+    /*public ResponseEntity<String> getCountry() {
+        return ResponseEntity.ok("Le serveur fonctionne !");
+    }*/
 }

@@ -1,5 +1,6 @@
 package com.mbo.backend.model;
 
+import com.mbo.backend.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
@@ -9,12 +10,13 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 @Data
-@ToString
+//@ToString
 public class User {
 
     @Id
@@ -26,6 +28,10 @@ public class User {
 
     @Column(name = "email", nullable = false)
     private String email;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
 
     /*@CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)

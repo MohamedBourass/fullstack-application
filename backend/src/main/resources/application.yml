@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: fullstack-application
+  security:
+    user:
+      name: admin
+      password: admin
   datasource:
     url: "jdbc:h2:file:~/backend/src/main/resources/db/demo"
     #url: "jdbc:h2:./target/db;DB_CLOSE_ON_EXIT=FALSE;"
