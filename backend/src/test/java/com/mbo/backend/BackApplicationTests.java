@@ -57,9 +57,9 @@ public class BackApplicationTests {
         ResponseEntity<Country[]> response = restTemplate.getForEntity(url, Country[].class);
         Country[] countries = response.getBody();
 
-        SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        softAssertions.assertThat(countries).isNotNull().hasSize(54);
-        softAssertions.assertAll();
+        SoftAssertions softly = new SoftAssertions();
+        softly.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        softly.assertThat(countries).isNotNull().hasSize(54);
+        softly.assertAll();
     }
 }
