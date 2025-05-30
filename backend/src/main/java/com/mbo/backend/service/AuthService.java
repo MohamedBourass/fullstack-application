@@ -1,5 +1,6 @@
 package com.mbo.backend.service;
 
+import com.mbo.backend.Role;
 import com.mbo.backend.model.User;
 import com.mbo.backend.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,11 +20,16 @@ public class AuthService {
 
     public User register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.getRoles().add(Role.USER);
         return userRepository.save(user);
     }
 
     public Optional<User> login(String email, String password) {
         return userRepository.findByEmail(email)
                 .filter(user -> passwordEncoder.matches(password, user.getPassword()));
+    }
+
+    public boolean isAdmin(User user) {
+        return user.getRoles().contains(Role.ADMIN);
     }
 }
