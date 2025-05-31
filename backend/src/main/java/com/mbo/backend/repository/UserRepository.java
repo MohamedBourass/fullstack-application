@@ -8,7 +8,5 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    // This interface will automatically provide CRUD operations for the User entity
-    // You can add custom query methods here if needed
     Optional<User> findByEmail(String email);
 }

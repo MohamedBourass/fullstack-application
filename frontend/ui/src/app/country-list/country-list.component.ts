@@ -21,7 +21,7 @@ export class CountryListComponent {
 
 
     // reading row data from file
-    this.http.get("http://localhost:8080/api/v1/country").subscribe(data => {
+    this.http.get("http://localhost:8080/api/v1/country/all").subscribe(data => {
       this.rowData = data
     });
   }

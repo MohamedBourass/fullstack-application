@@ -12,9 +12,19 @@ export class LoginComponent {
   constructor(private authService: AuthService) {}
 
   onLogin() {
-    this.authService.login(this.credentials).subscribe(response => {
-      localStorage.setItem('token', response.token);
-      console.log('Login successful');
+    this.authService.login(this.credentials).subscribe({
+      next: response => {
+        console.log('Server response: ', response);
+        if(response.token) {
+          localStorage.setItem('token', response.token);
+          console.log('Login successful');
+        } else {
+          console.error('Token missing in the response');
+        }
+      },
+      error: err => {
+        console.error('Error login: ', err);
+      }
     });
   }
 }
