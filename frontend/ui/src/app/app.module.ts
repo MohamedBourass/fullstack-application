@@ -17,21 +17,12 @@ import { CountryListComponent } from './country-list/country-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { RegisterComponent } from './auth/register/register.component';
-//import { authInterceptorProviders } from './auth/auth.interceptor';
+import { AuthInterceptor } from './auth/auth.interceptor';
 
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
-
-//import { HotTableModule } from '@handsontable/angular';
-//import { registerAllModules } from 'handsontable/registry';
-
-//import { HotTableModule } from '@handsontable/angular';
-//import { registerAllModules } from 'handsontable/registry';
-
-// register Handsontable's modules
-//registerAllModules();
 
 @NgModule({
   declarations: [
@@ -53,10 +44,10 @@ import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
     FormsModule,
     HttpClientModule,
     AppRoutingModule
-    //,
-    //HotTableModule
   ],
-  //providers: [authInterceptorProviders],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    ],
   bootstrap: [AppComponent]
 })
 

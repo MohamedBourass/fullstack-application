@@ -53,7 +53,7 @@ public class BackApplicationTests {
 
     @Test
     public void testGetCountry() {
-        String url = "http://localhost:" + port + "/api/v1/country";
+        String url = "http://localhost:" + port + "/api/v1/country/all";
         ResponseEntity<Country[]> response = restTemplate.getForEntity(url, Country[].class);
         Country[] countries = response.getBody();
 

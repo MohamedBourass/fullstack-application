@@ -4,8 +4,6 @@ import { AuditComponent } from './components/audit/audit.component';
 import { ChunkPipe } from './pipes/chunk.pipe';
 import { CountPipe } from './pipes/count.pipe';
 
-
-
 @NgModule({
   declarations: [
     AuditComponent,

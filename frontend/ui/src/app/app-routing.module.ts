@@ -5,13 +5,14 @@ import { CountryListComponent } from './country-list/country-list.component';
 
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { AuthGuard } from './auth/auth.guard';
+//import { AuthGuard } from './auth/auth.guard';
 
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'all', pathMatch: 'full' },
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  //{ path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent },
   { path: 'ag-grid', component: CountryListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

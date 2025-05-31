@@ -30,7 +30,7 @@ public class CountryControllerTest {
     @SneakyThrows
     public void testGetCountry() {
         String responseBody = this.mockMvc
-                .perform(MockMvcRequestBuilders.get("/api/v1/country"))
+                .perform(MockMvcRequestBuilders.get("/api/v1/country/all"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andReturn()

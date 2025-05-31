@@ -1,5 +1,7 @@
 # Backend application
 
+Chat copilot => https://copilot.microsoft.com/chats/mLniVzcx4Nrsin8BW7ekf
+
 - The aim of this backend is to create a REST api based on Spring Boot 3 and Java 17.
 - This backend will interact with an embedded H2 database to be able to interact with the frontend through the API.
 - The backend spring boot application runs on the URL [http://localhost:8080](http://localhost:8080)

@@ -2,14 +2,10 @@ package com.mbo.backend.model;
 
 import com.mbo.backend.Role;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +13,9 @@ import java.util.Set;
 @Table(name = "users")
 //@EntityListeners(AuditingEntityListener.class)
 @Data
-//@ToString
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
