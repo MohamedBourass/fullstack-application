@@ -6,7 +6,7 @@ INSERT INTO continent (code, name) VALUES ('SA', 'South America');
 INSERT INTO continent (code, name) VALUES ('OC', 'Oceania');
 INSERT INTO continent (code, name) VALUES ('AN', 'Antarctica');
 
-INSERT INTO users (password, email) VALUES ('bonene', 'toto@gmail.com');
+INSERT INTO users (password, email) VALUES ('$2a$10$ha923GH6opI0T6ViO06w1.A01z3Si3MPxN7ax5.3XkizodqzW8HJ6', 'admin@gmail.com');
 
 INSERT INTO country (code, name, capital, area) VALUES
 ('DZ', 'Algeria', 'Algiers', 2381741),

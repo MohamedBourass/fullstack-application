@@ -5,9 +5,9 @@ import { CountryListComponent } from './country-list/country-list.component';
 
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AuthGuard } from './auth/auth.guard';
 
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
-import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'all', pathMatch: 'full' },

@@ -1,3 +1,5 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -15,11 +17,11 @@ import { CountryListComponent } from './country-list/country-list.component';
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { RegisterComponent } from './auth/register/register.component';
+//import { authInterceptorProviders } from './auth/auth.interceptor';
 
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
-import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 
 //import { HotTableModule } from '@handsontable/angular';
@@ -54,7 +56,7 @@ import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
     //,
     //HotTableModule
   ],
-  providers: [authInterceptorProviders],
+  //providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 
