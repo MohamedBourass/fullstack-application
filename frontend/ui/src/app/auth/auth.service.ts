@@ -15,15 +15,31 @@ export class AuthService {
     return this.http.post(AUTH_API + 'login', null, { params: credentials });
   }
 
+  /*processLogin(response: any): void {
+    if (response.token) {
+      this.tokenStorage.saveToken(response.token);
+      this.tokenStorage.saveUser(response.user);
+      console.log('Login successful');
+      console.log('Token : ' + response.token);
+      console.log('User: ' + response.user);
+    } else {
+      console.error('Error. No token received');
+    }
+  }*/
+
   register(userData: { email: string; password: string; name: string }): Observable<any> {
     return this.http.post(AUTH_API + 'register', userData);
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    this.tokenStorage.signOut();
   }
 
   isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
+    return !!this.tokenStorage.getToken();
+  }
+
+  getCurrentUser(): Observable<any> {
+    return this.http.get(AUTH_API + 'me');
   }
 }

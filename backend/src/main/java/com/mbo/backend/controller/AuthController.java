@@ -7,6 +7,9 @@ import com.mbo.backend.service.AuthService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
@@ -26,16 +29,26 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
+    public ResponseEntity<Map<String,String>> login(@RequestParam String email, @RequestParam String password) {
         return authService.login(email, password)
-                .map(user -> ResponseEntity.ok("Login successful"))
-                .orElse(ResponseEntity.status(401).body("Login failed"));
+                .map(user -> {
+                    Map<String, String> response = new HashMap<>();
+                    response.put("token", jwtUtil.generateToken(user));
+                    response.put("message", "Login successful");
+                    response.put("user", user.getEmail());
+                    return ResponseEntity.ok(response);
+                })
+                .orElse(ResponseEntity.status(401).body(null));
     }
 
     @GetMapping("/me")
-    public ResponseEntity<User> getCurrentUser(@RequestHeader("Authorization") String token) {
+    public ResponseEntity<User> getCurrentUser(@RequestHeader(value = "Authorization", required = false) String token) {
+        if(token == null || !token.startsWith("Bearer ")) {
+            return ResponseEntity.status(403).body(null);
+        }
+
         String email = jwtUtil.extractUsername(token.replace("Bearer ", ""));
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
+        User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Unknown user"));
         return ResponseEntity.ok(new User(user.getId(), user.getEmail(), user.getPassword(), user.getRoles()));
     }
 }

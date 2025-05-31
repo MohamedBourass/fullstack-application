@@ -13,10 +13,18 @@
       <li class="nav-item">
         <a class="nav-link" href="/ag-grid">AG Grid</a>
       </li>
-      <li class="nav-item">
+      <!-- If connected -->
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <a class="nav-link" href="/profile">Profil</a>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav-item" >
+        <a class="nav-link" (click)="logout()">Logout</a>
+      </li>
+      <!-- If not connected -->
+      <li *ngIf="!isLoggedIn" class="nav-item">
         <a class="nav-link" href="/register">Register</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="!isLoggedIn" class="nav-item" >
         <a class="nav-link" href="/login">Login</a>
       </li>
       <li class="nav-item">
