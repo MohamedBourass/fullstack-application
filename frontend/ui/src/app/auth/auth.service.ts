@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
+import { environment } from '../../environments/environment';
 
-const AUTH_API = 'http://localhost:8080/api/v1/auth/';
+const AUTH_API = environment.apiUrl + '/api/v1/auth/';
 
 @Injectable({
   providedIn: 'root'
@@ -14,18 +15,6 @@ export class AuthService {
   login(credentials: { email: string; password: string }): Observable<any> {
     return this.http.post(AUTH_API + 'login', null, { params: credentials });
   }
-
-  /*processLogin(response: any): void {
-    if (response.token) {
-      this.tokenStorage.saveToken(response.token);
-      this.tokenStorage.saveUser(response.user);
-      console.log('Login successful');
-      console.log('Token : ' + response.token);
-      console.log('User: ' + response.user);
-    } else {
-      console.error('Error. No token received');
-    }
-  }*/
 
   register(userData: { email: string; password: string; name: string }): Observable<any> {
     return this.http.post(AUTH_API + 'register', userData);

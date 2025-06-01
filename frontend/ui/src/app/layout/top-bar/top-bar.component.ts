@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class TopBarComponent {
 
-  title = 'Showcases NG plugins';
+  title = 'FrontEnd';
 }

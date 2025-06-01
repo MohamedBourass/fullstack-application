@@ -16,8 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
     if (token) {
       authReq = req.clone({ headers: req.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
     }
-    return next.handle(authReq);
-    /*.pipe(
+    return next.handle(authReq).pipe(
       catchError((error: HttpErrorResponse) => {
         if(error.status === 401) {
           console.error('Token invalid or expired. Logout...');
@@ -25,6 +24,6 @@ export class AuthInterceptor implements HttpInterceptor {
         }
         return throwError(() => new Error(error.message));
       })
-    );*/
+    );
   }
 }

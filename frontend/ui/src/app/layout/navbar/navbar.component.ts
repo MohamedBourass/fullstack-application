@@ -1,15 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 //import { AuthService } from '../../auth/auth.service';
 import { TokenStorageService } from '../../auth/token-storage.service';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  animations: [
+    trigger('transformMenu', [
+      state('open', style({ opacity: 1, transform: 'scale(1)' })),
+      state('closed', style({ opacity: 0, transform: 'scale(0.9)' })),
+      transition('closed => open', animate('300ms ease-in')),
+      transition('open => closed', animate('300ms ease-out'))
+    ])
+  ]
 })
 export class NavbarComponent implements OnInit {
 
   isLoggedIn = false;
+    menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 
   /*user: any;
 

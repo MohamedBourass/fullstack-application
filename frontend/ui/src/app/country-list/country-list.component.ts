@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular'; // Angular Data Grid Component
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http'; // HTTP Client for making requests
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-country-list',
@@ -10,6 +11,7 @@ import { HttpHeaders } from '@angular/common/http'; // HTTP Client for making re
   styleUrls: ['./country-list.component.css']
 })
 export class CountryListComponent {
+
   rowData: any;
 
   constructor(private http: HttpClient) { }
@@ -21,7 +23,7 @@ export class CountryListComponent {
 
 
     // reading row data from file
-    this.http.get("http://localhost:8080/api/v1/country/all").subscribe(data => {
+    this.http.get(environment.apiUrl + '/api/v1/country/all').subscribe(data => {
       this.rowData = data
     });
   }
