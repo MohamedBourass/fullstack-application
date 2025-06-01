@@ -1,93 +1,41 @@
-<!--
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Accueil</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/ag-grid">AG Grid</a>
-      </li>
-      <li *ngIf="isLoggedIn" class="nav-item">
-        <a class="nav-link" href="/profile">Profil</a>
-      </li>
-      <li *ngIf="isLoggedIn" class="nav-item" >
-        <a class="nav-link" (click)="logout()">Logout</a>
-      </li>
-      <li *ngIf="!isLoggedIn" class="nav-item">
-        <a class="nav-link" href="/register">Register</a>
-      </li>
-      <li *ngIf="!isLoggedIn" class="nav-item" >
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/spreadsheet">Spreadsheet</a>
-      </li>
-    </ul>
-  </div>
-</nav>
--->
-<mat-toolbar color="primary">
-  <mat-tab-group>
-    <mat-tab>
-      <ng-template matTabLabel>
-        <a mat-button routerLink="/" routerLinkActive="active-tab">Home</a>
-      </ng-template>
-    </mat-tab>
-    <mat-tab>
-      <ng-template matTabLabel>
-        <a mat-button routerLink="/ag-grid" routerLinkActive="active-tab">AG grid</a>
-      </ng-template>
-    </mat-tab>
-    <mat-tab>
-      <ng-template matTabLabel>
-        <a mat-button routerLink="/profile" routerLinkActive="active-tab">Profile</a>
-      </ng-template>
-    </mat-tab>
-    <mat-tab>
-      <ng-template matTabLabel>
-        <a mat-button routerLink="/register" routerLinkActive="active-tab">Register</a>
-      </ng-template>
-    </mat-tab>
-    <mat-tab>
-      <ng-template matTabLabel>
-        <a mat-button routerLink="/login" routerLinkActive="active-tab">Login</a>
-      </ng-template>
-    </mat-tab>
-    <mat-tab>
-      <ng-template matTabLabel>
-        <a mat-button routerLink="/spreadsheet" routerLinkActive="active-tab">Spreadsheet</a>
-      </ng-template>
-    </mat-tab>
-    <mat-tab>
-      <ng-template matTabLabel>
-        <a mat-button (click)="logout()" routerLinkActive="active-tab">Logout</a>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
-  <!--<button mat-button routerLink="">Home</button>
-  <button mat-button routerLink="ag-grid">AG Grid</button>
-  <button mat-button routerLink="profile">Profile</button>
-  <button mat-button (click)="logout()">Logout</button>
-  <button mat-button routerLink="register">Register</button>
-  <button mat-button routerLink="login">Login</button>
-  <button mat-button routerLink="spreadsheet">Spreadsheet</button>-->
-  <!--<button mat-button [matMenuTriggerFor]="menu">Home1</button>
-  <mat-menu #menu="matMenu" [@transformMenu]="menuOpen ? 'open' : 'closed'">
-    <button mat-menu-item href="#">🏠 Accueil</button>
-    <button mat-menu-item href="">👤 Profil</button>
-    <button mat-menu-item href="">⚙️ Paramètres</button>
-  </mat-menu>
-  <button mat-button [matMenuTriggerFor]="menu2">Ag-grid</button>
-  <mat-menu #menu2="matMenu" [@transformMenu]="menuOpen ? 'open' : 'closed'">
-    <button mat-menu-item href="#">🏠 Accueil</button>
-    <button mat-menu-item href="">👤 Profil</button>
-    <button mat-menu-item href="">⚙️ Paramètres</button>
-  </mat-menu>
-  <button mat-button [matMenuTriggerFor]="menu3">Spreadsheet</button>
-  <mat-menu #menu3="matMenu" [@transformMenu]="menuOpen ? 'open' : 'closed'">
-    <button mat-menu-item href="#">🏠 Accueil</button>
-    <button mat-menu-item href="">👤 Profil</button>
-    <button mat-menu-item href="">⚙️ Paramètres</button>
-  </mat-menu>-->
-</mat-toolbar>
+<div class="navbar">
+  <mat-toolbar>
+    <mat-tab-group>
+      <mat-tab>
+        <ng-template matTabLabel>
+          <a mat-button routerLink="/" routerLinkActive="active-tab"><mat-icon>home</mat-icon>Home</a>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabLabel>
+          <a mat-button routerLink="/ag-grid" routerLinkActive="active-tab">AG grid</a>
+        </ng-template>
+      </mat-tab>
+      <mat-tab  *ngIf="isLoggedIn">
+        <ng-template matTabLabel>
+          <a mat-button routerLink="/profile" routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact: true}">Profile</a>
+        </ng-template>
+      </mat-tab>
+      <mat-tab *ngIf="!isLoggedIn">
+        <ng-template matTabLabel>
+          <a mat-button routerLink="/register" routerLinkActive="active-tab">Register</a>
+        </ng-template>
+      </mat-tab>
+      <mat-tab *ngIf="!isLoggedIn">
+        <ng-template matTabLabel>
+          <a mat-button routerLink="/login" routerLinkActive="active-tab">Login</a>
+        </ng-template>
+      </mat-tab>
+      <mat-tab>
+        <ng-template matTabLabel>
+          <a mat-button routerLink="/spreadsheet" routerLinkActive="active-tab">Spreadsheet</a>
+        </ng-template>
+      </mat-tab>
+      <mat-tab *ngIf="isLoggedIn">
+        <ng-template matTabLabel>
+          <a mat-button (click)="logout()" routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact: true}">Logout</a>
+        </ng-template>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-toolbar>
+</div>

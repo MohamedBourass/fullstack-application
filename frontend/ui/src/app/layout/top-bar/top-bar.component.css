@@ -4,11 +4,11 @@
   left: 0;
   right: 0;
   height: 60px;
-  /*display: flex;
-  align-items: center;*/
   background-color: #1976d2;
   color: white;
-  font-weight: 600;
+  /*display: flex;
+  align-items: center;
+  font-weight: 600;*/
 }
 
 .toolbar img {
@@ -23,3 +23,7 @@
 .toolbar #twitter-logo:hover {
   opacity: 0.8;
 }
+
+/*.spacer {
+  flex: 1;
+}*/

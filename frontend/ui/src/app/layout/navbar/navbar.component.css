@@ -1,59 +1,61 @@
+.navbar {
+  padding: 10px;
+}
+
 .mat-toolbar {
   /*background-color: #3f51b5;
   color: white;
   display: flex;
   justify-content: space-between;*/
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  color: white;
   padding: 10px 20px;
-  font-size: 18px;
-}
-
-/*.spacer {
-  flex: 1;
-}*/
-
-.mat-menu-panel {
-  /*display: block !important;
-  min-width: 200px;*/
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  /*display: flex !important;
-  flex-direction: row !important;*/
-}
-
-.mat-menu-item {
+  background-color: #000;
   font-size: 16px;
-  padding: 10px 20px;
-}
-
-.mat-menu-item:hover {
-  background-color: rgba(63, 81, 181, 0.1);
-}
-
-/*@media (max-width: 768px) {
-  .mat-toolbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-  }
-}*/
-
-.mat-tab-group {
   width: 100%;
 }
 
+.mat-tab-group {
+  /*width: 100%;*/
+  text-align: right;
+  min-height: 40px;
+}
+
+.mat-tab-group a {
+  text-decoration: none;
+  color: white;
+  /*display: flex;
+  align-items: center;
+  gap: 5px;*/
+  padding: 8px 12px;
+}
+
+.mat-tab-group a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
 .mat-tab-label {
-  font-size: 16px;
+  position: relative;
+  font-size: 20px;
   font-weight: bold;
   color: white;
+  transition: background-color 0.3s ease-in-out;
+  width: 30px;
 }
 
 .mat-tab-label:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  /*background-color: rgba(255, 255, 255, 0.1);
+  background-color: #FFF;*/
   border-radius: 5px;
+  transform: none !important;
 }
 
 .active-tab {
   font-weight: bold;
-  border-bottom: 3px solid #ff9800;
+  border-bottom: 3px solid #C62828;
 }
