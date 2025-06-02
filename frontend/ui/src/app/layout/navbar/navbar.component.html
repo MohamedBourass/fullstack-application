@@ -33,7 +33,7 @@
       </mat-tab>
       <mat-tab *ngIf="isLoggedIn">
         <ng-template matTabLabel>
-          <a mat-button (click)="logout()" routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact: true}">Logout</a>
+          <a mat-button (click)="logout()" routerLinkActive="active-tab">Logout</a>
         </ng-template>
       </mat-tab>
     </mat-tab-group>

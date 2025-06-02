@@ -8,6 +8,7 @@ import { RegisterComponent } from './auth/register/register.component';
 //import { AuthGuard } from './auth/auth.guard';
 
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: 'all', pathMatch: 'full' },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'ag-grid', component: CountryListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'spreadsheet', component: SpreadsheetComponent }
+  { path: 'spreadsheet', component: SpreadsheetComponent },
+  { path: 'profile', component: ProfileComponent }
   //{ path: 'svg', component: SvgComponent }
 ];
 

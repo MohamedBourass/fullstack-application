@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 import { environment } from '../../environments/environment';
+import { BehaviorSubject } from 'rxjs';
 
 const AUTH_API = environment.apiUrl + '/api/v1/auth/';
 
@@ -10,6 +11,12 @@ const AUTH_API = environment.apiUrl + '/api/v1/auth/';
   providedIn: 'root'
 })
 export class AuthService {
+
+  private isLoggedInSubject = new BehaviorSubject<boolean>(false);
+
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
+
+
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
   login(credentials: { email: string; password: string }): Observable<any> {
@@ -21,11 +28,16 @@ export class AuthService {
   }
 
   logout(): void {
+    this.isLoggedInSubject.next(false);
     this.tokenStorage.signOut();
   }
 
   isLoggedIn(): boolean {
-    return !!this.tokenStorage.getToken();
+    if(!!this.tokenStorage.getToken()) {
+      this.isLoggedInSubject.next(true);
+      return true;
+    }
+    return false;
   }
 
   getCurrentUser(): Observable<any> {

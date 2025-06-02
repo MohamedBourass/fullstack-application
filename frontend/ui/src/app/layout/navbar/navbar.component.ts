@@ -1,45 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-//import { AuthService } from '../../auth/auth.service';
 import { TokenStorageService } from '../../auth/token-storage.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
-  /*,
-  animations: [
-    trigger('transformMenu', [
-      state('open', style({ opacity: 1, transform: 'scale(1)' })),
-      state('closed', style({ opacity: 0, transform: 'scale(0.9)' })),
-      transition('closed => open', animate('300ms ease-in')),
-      transition('open => closed', animate('300ms ease-out'))
-    ])
-  ]*/
 })
 export class NavbarComponent implements OnInit {
 
-  isLoggedIn = false;
+  isLoggedIn: boolean = false;
 
-  /*user: any;
-
-  constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-    this.authService.getCurrentUser().subscribe({
-      next: data => {
-        this.user = data;
-        console.log('User connected: ', this.user);
-      },
-      error: err => {
-        console.error('Error when retrieve the user: ', err);
-      }
-    });
-  }*/
-
-  constructor(private tokenStorage: TokenStorageService) {}
+  constructor(private tokenStorage: TokenStorageService, private authService: AuthService) {}
 
   ngOnInit() {
-    this.isLoggedIn = !!this.tokenStorage.getToken(); //Check if the token exists
+    this.authService.isLoggedIn$.subscribe((status: boolean) => {
+      this.isLoggedIn = status;
+    });
   }
 
   logout() {
