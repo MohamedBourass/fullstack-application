@@ -6,19 +6,19 @@
 
 ## Useful Angular plugins 
 
-| Plugin          | Description | NPM Install Command |
-|----------------|------------|----------------------|
-| **ngx-translate** | Translation and multilingual support. | `npm install @ngx-translate/core @ngx-translate/http-loader` |
-| **ng-bootstrap** | Bootstrap integration without jQuery, ideal for Angular. | `npm install @ng-bootstrap/ng-bootstrap` |
-| **Angular Material** | Official Angular UI components for modern interfaces. | `npm install @angular/material` |
-| **PrimeNG** | Collection of advanced UI components (tables, menus, forms, etc.). | `npm install primeng` |
-| **AG Grid** | High-performance interactive data table. | `npm install ag-grid-angular ag-grid-community` |
-| **ngx-charts** | Library for dynamic and interactive charts. | `npm install @swimlane/ngx-charts` |
-| **ngx-formly** | Dynamic form generation without HTML. | `npm install @ngx-formly/core @ngx-formly/bootstrap` |
-| **Angular Fire** | Easy Firebase integration (authentication, database, storage). | `npm install @angular/fire firebase` |
+| Plugin          | Description | NPM Install Command                                                       |
+|----------------|------------|---------------------------------------------------------------------------|
+| **ngx-translate** | Translation and multilingual support. | `npm install @ngx-translate/core @ngx-translate/http-loader`              |
+| **ng-bootstrap** | Bootstrap integration without jQuery, ideal for Angular. | `npm install @ng-bootstrap/ng-bootstrap`                                  |
+| **Angular Material** | Official Angular UI components for modern interfaces. | `npm install @angular/material`                                           |
+| **PrimeNG** | Collection of advanced UI components (tables, menus, forms, etc.). | `npm install primeng`                                                     |
+| **AG Grid** | High-performance interactive data table. | `npm install ag-grid-angular ag-grid-community`                           |
+| **ng2-charts** | Library for dynamic and interactive charts. | `npm install chart.js ng2-charts`                                         |
+| **ngx-formly** | Dynamic form generation without HTML. | `npm install @ngx-formly/core @ngx-formly/bootstrap`                      |
+| **Angular Fire** | Easy Firebase integration (authentication, database, storage). | `npm install @angular/fire firebase`                                      |
 | **NgRx** | Redux-inspired state management for complex applications. | `npm install @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools` |
-| **ngx-leaflet** | Leaflet extension for adding interactive maps to Angular. | `npm install @asymmetrik/ngx-leaflet` |
-| **Handsontable** | Spreadsheet-like data grid with sorting, filtering, and validation. | `npm install handsontable` |
+| **ngx-leaflet** | Leaflet extension for adding interactive maps to Angular. | `npm install @asymmetrik/ngx-leaflet`                                     |
+| **Handsontable** | Spreadsheet-like data grid with sorting, filtering, and validation. | `npm install handsontable`                                                |
 
 ## NPM and GitHub repositories
 

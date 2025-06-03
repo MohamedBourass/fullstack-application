@@ -21,7 +21,6 @@ import { RegisterComponent } from './auth/register/register.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 
 import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
 
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -30,6 +29,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeModule } from './home/home.module';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +42,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    HomeComponent,
     SpreadsheetComponent,
-    LogoutComponent
+    LogoutComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +57,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     MatTabsModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

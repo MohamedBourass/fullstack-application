@@ -1,0 +1,26 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+
+@Component({
+  selector: 'app-unauthorized',
+  templateUrl: './unauthorized.component.html',
+  styleUrls: ['./unauthorized.component.css']
+})
+export class UnauthorizedComponent {
+
+  isLoggedIn: boolean;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
+
+  goHome(): void {
+    this.router.navigate(['/']); // Redirige vers la page d'accueil
+  }
+
+  goToLogin(): void {
+    this.router.navigate(['/login']); // Redirection vers la page de connexion
+  }
+
+}
