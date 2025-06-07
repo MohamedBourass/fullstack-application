@@ -36,7 +36,7 @@
 | **ngx-leaflet** | https://www.npmjs.com/package/@asymmetrik/ngx-leaflet | https://github.com/Asymmetrik/ngx-leaflet |
 | **Handsontable** | https://www.npmjs.com/package/handsontable | https://github.com/handsontable/handsontable |
 
-## Angular 13 app examples
+## Angular app examples
 
 - https://github.com/onehungrymind/angular13-fundamentals-workshop/tree/main
 - https://github.com/bezkoder/angular-13-login-registration-example/tree/master
@@ -49,3 +49,4 @@
 - https://github.com/PranamBhat/Angular-Unit-Testing/tree/master/src/testing
 - https://github.com/Rabiezouita11/Crud-with-angular
 - https://github.com/SJarno/spring-angular-crud
+- https://github.com/stefanoandroni
