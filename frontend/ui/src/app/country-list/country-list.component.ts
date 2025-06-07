@@ -23,7 +23,7 @@ export class CountryListComponent {
 
 
     // reading row data from file
-    this.http.get(environment.apiUrl + '/api/v1/country/all').subscribe(data => {
+    this.http.get(environment.apiUrl + '/country/all').subscribe(data => {
       this.rowData = data
     });
   }
