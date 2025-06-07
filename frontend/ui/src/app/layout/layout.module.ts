@@ -5,14 +5,15 @@ import { RouterModule } from '@angular/router';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [HeaderComponent, FooterComponent, SidenavComponent],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule
     ]
-  ,exports: [HeaderComponent, FooterComponent]
+  ,exports: [HeaderComponent, FooterComponent, SidenavComponent]
 })
 export class LayoutModule { }

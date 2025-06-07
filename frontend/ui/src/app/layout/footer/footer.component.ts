@@ -1,20 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
+  @Input() title!: string;
+  private year = new Date().getFullYear();
 
-  constructor() { }
-
-  ngOnInit(): void {
-
-  }
-
-  currentYearLong(): number {
-    return new Date().getFullYear();
-  }
-
+  project = 'angular-ecommerce';
+  copyrightLine1 = `Powered by st.and©${this.year}.`;
+  copyrightLine2 = 'Code licensed under an MIT License.';
 }

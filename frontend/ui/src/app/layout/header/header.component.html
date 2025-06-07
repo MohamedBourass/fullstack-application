@@ -5,9 +5,13 @@
 
     <!-- NAV -->
     <nav>
-        <a mat-button routerLink="/home">Home</a>
-        <a mat-button routerLink="/products">Products</a>
-        <a mat-button routerLink="/about">About</a>
+        <a mat-button routerLink="/">Home</a>
+        <a mat-button routerLink="/ag-grid">AG grid</a>
+        <a mat-button *ngIf="authService.isLoggedIn()" routerLink="/profile">Profile</a>
+        <a mat-button *ngIf="!authService.isLoggedIn()" routerLink="/register">Register</a>
+        <a mat-button *ngIf="!authService.isLoggedIn()" routerLink="/login">Login</a>
+        <a mat-button routerLink="spreadsheet">Spreadsheet</a>
+        <a mat-button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</a>
     </nav>
 
     <span class="spacer"></span>
