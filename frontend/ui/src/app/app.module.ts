@@ -8,10 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { AppRoutingModule } from './app-routing.module';
 
-import { TopbarComponent } from './layout/topbar/topbar.component';
-import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './layout/footer/footer.component';
+import { LayoutModule } from './layout/layout.module';
 
 import { CountryListComponent } from './country-list/country-list.component';
 
@@ -35,10 +33,7 @@ import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.componen
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent,
-    FooterComponent,
     CountryListComponent,
-    NavbarComponent,
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
@@ -58,7 +53,8 @@ import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.componen
     MatTabsModule,
     MatIconModule,
     ReactiveFormsModule,
-    HomeModule
+    HomeModule,
+    LayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
