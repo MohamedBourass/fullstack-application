@@ -29,13 +29,14 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Map<String,String>> login(@RequestParam String email, @RequestParam String password) {
+    public ResponseEntity<Map<String,Object>> login(@RequestParam String email, @RequestParam String password) {
         return authService.login(email, password)
                 .map(user -> {
-                    Map<String, String> response = new HashMap<>();
+                    Map<String, Object> response = new HashMap<>();
                     response.put("token", jwtUtil.generateToken(user));
                     response.put("message", "Login successful");
                     response.put("user", user.getEmail());
+                    response.put("roles", user.getRoles());
                     return ResponseEntity.ok(response);
                 })
                 .orElse(ResponseEntity.status(401).body(null));

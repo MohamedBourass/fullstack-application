@@ -1,4 +1,4 @@
-package com.mbo.backend;
+package com.mbo.backend.model;
 
 public enum Role {
     USER,

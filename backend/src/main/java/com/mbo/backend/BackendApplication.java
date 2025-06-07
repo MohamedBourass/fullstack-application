@@ -1,5 +1,6 @@
 package com.mbo.backend;
 
+import com.mbo.backend.model.Role;
 import com.mbo.backend.model.User;
 import com.mbo.backend.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -31,8 +32,8 @@ public class BackendApplication {
             if(userRepository.findByEmail("test@example.com").isEmpty()) {
                 User user = new User();
                 user.setEmail("test@example.com");
-                user.setPassword(passwordEncoder.encode("test123")); // 🔒 Hash du mot de passe
-                user.getRoles().add(Role.ADMIN);
+                user.setPassword(passwordEncoder.encode("test123"));
+                user.getRoles().add(Role.USER);
                 userRepository.save(user);
                 log.info("Utilisateur ADMIN ajouté !");
             }

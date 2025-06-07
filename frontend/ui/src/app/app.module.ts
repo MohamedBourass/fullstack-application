@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { AppRoutingModule } from './app-routing.module';
 
-import { TopBarComponent } from './layout/topbar/top-bar.component';
+import { TopbarComponent } from './layout/topbar/topbar.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -35,7 +35,7 @@ import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.componen
 @NgModule({
   declarations: [
     AppComponent,
-    TopBarComponent,
+    TopbarComponent,
     FooterComponent,
     CountryListComponent,
     NavbarComponent,

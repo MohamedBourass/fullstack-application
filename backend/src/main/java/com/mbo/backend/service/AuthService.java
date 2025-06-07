@@ -1,6 +1,6 @@
 package com.mbo.backend.service;
 
-import com.mbo.backend.Role;
+import com.mbo.backend.model.Role;
 import com.mbo.backend.model.User;
 import com.mbo.backend.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;

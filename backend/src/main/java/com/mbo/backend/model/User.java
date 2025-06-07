@@ -1,6 +1,5 @@
 package com.mbo.backend.model;
 
-import com.mbo.backend.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
