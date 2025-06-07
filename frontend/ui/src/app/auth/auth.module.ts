@@ -9,12 +9,11 @@ import { RouterModule } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
 
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
 import { RegisterComponent } from './register/register.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
-  declarations: [LoginComponent, LogoutComponent, RegisterComponent, UnauthorizedComponent],
+  declarations: [LoginComponent, RegisterComponent, UnauthorizedComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -25,6 +24,6 @@ import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
     MatIconModule,
     AuthRoutingModule
   ]
-  ,exports: [LoginComponent, LogoutComponent, RegisterComponent, UnauthorizedComponent]
+  ,exports: [LoginComponent, RegisterComponent, UnauthorizedComponent]
 })
 export class AuthModule { }
