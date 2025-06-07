@@ -20,7 +20,7 @@ import { FooterComponent } from './footer/footer.component';
     MatTabsModule,
     MatIconModule,
     RouterModule
-    ],
-  exports: [TopbarComponent, NavbarComponent, FooterComponent]
+    ]
+  ,exports: [TopbarComponent, NavbarComponent, FooterComponent]
 })
 export class LayoutModule { }
