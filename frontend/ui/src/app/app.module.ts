@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
 import { AppRoutingModule } from './app-routing.module';
 
-import { TopBarComponent } from './layout/top-bar/top-bar.component';
+import { TopBarComponent } from './layout/topbar/top-bar.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -30,7 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeModule } from './home/home.module';
-import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [

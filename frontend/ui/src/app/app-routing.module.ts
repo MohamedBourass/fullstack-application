@@ -5,7 +5,7 @@ import { CountryListComponent } from './country-list/country-list.component';
 
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { UnauthorizedComponent } from './auth/unauthorized/unauthorized.component';
 
 import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
 import { ProfileComponent } from './profile/profile.component';
