@@ -6,19 +6,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AgGridModule } from 'ag-grid-angular';
-import { AppRoutingModule } from './app-routing.module';
 
+//Custom modules
+import { AuthModule } from './modules/auth/auth.module';
+import { CountryListComponent } from './modules/country-list/country-list.component';
+import { HomeModule } from './modules/home/home.module';
+import { ProfileComponent } from './modules/profile/profile.component';
+import { SpreadsheetComponent } from './modules/spreadsheet/spreadsheet.component';
+
+//Root
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
-import { AuthModule } from './auth/auth.module';
-
-import { CountryListComponent } from './country-list/country-list.component';
-import { ProfileComponent } from './profile/profile.component';
-import { SpreadsheetComponent } from './spreadsheet/spreadsheet.component';
-
 import { MaterialModule } from './material.module';
-import { HomeModule } from './home/home.module';
-
 
 @NgModule({
   declarations: [

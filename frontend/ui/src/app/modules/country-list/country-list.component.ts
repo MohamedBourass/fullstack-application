@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular'; // Angular Data Grid Component
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http'; // HTTP Client for making requests
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-country-list',

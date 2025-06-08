@@ -9,7 +9,6 @@
         <a mat-button routerLink="/ag-grid">AG grid</a>
         <a mat-button *ngIf="authService.isLoggedIn()" routerLink="/profile">Profile</a>
         <a mat-button *ngIf="!authService.isLoggedIn()" routerLink="/register">Register</a>
-        <a mat-button *ngIf="!authService.isLoggedIn()" routerLink="/login">Login</a>
         <a mat-button routerLink="spreadsheet">Spreadsheet</a>
         <a mat-button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</a>
     </nav>
@@ -18,7 +17,7 @@
 
     <!-- !isLogged: AUTHENTICATE -->
     <div class="auth-info-container">
-      <a *ngIf="!authService.isLoggedIn()" mat-raised-button routerLink="/authenticate" routerLinkActive="router-link-active" color="accent">Authenticate</a>
+      <a *ngIf="!authService.isLoggedIn()" mat-raised-button routerLink="/login" routerLinkActive="router-link-active" color="accent">Authenticate</a>
     </div>
 
     <!-- isLogged: PROFILE MENU -->
@@ -46,9 +45,9 @@
     </div>
 
     <!-- CART -->
-    <div class="cart-info-container">
-      <!--<button mat-raised-button class="small-button"  [matBadge]="(this.cartService.cart$ | async)?.quantity" matBadgePosition="below after" matBadgeColor="accent" (click)="this.cartService.openCart()">
-        <i class="material-icons material-icon">shopping_cart</i>
-      </button>-->
-    </div>
+  <!--<div class="cart-info-container">
+    <button mat-raised-button class="small-button"  [matBadge]="(this.cartService.cart$ | async)?.quantity" matBadgePosition="below after" matBadgeColor="accent" (click)="this.cartService.openCart()">
+      <i class="material-icons material-icon">shopping_cart</i>
+    </button>
+    </div>-->
 </mat-toolbar>
