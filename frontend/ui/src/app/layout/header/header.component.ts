@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
 //import { IsLoggedDirective } from 'src/app/auth/directives/is-logged.directive';
-import { AuthService } from '../../modules/auth/auth.service';
+import { AuthService } from '../../core/auth.service';
 //import { CartService } from 'src/app/services/cart.service';
 import { LogoutConfirmationDialogComponent } from '../../modules/auth/components/logout-confirmation-dialog/logout-confirmation-dialog.component';
 import { EMPTY, of } from 'rxjs';

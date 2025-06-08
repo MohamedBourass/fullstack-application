@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { AuthService } from '../../auth.service';
+import { AuthService } from '../../../../core/auth.service';
 
 @Component({
   selector: 'app-logout-confirmation-dialog',
