@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'ag-grid', component: CountryListComponent },
   { path: 'spreadsheet', component: SpreadsheetComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
-  { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) }
+  { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
+  { path: 'error', loadChildren: () => import('./modules/error/error.module').then(m => m.ErrorModule) },
+  { path: '**', redirectTo: '/error/404' }
 ];
 
 @NgModule({

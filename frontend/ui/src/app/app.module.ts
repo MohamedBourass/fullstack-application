@@ -20,6 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
 import { MaterialModule } from './material.module';
 
+import { ErrorModule } from './modules/error/error.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,8 @@ import { MaterialModule } from './material.module';
     MaterialModule,
     HomeModule,
     LayoutModule,
-    AuthModule
+    AuthModule,
+    ErrorModule
   ],
   providers: [
     //{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}

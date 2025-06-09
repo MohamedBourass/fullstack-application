@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+/*import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../../core/auth.service';
 import { TokenStorageService } from '../../../../core/token-storage.service';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';*/
+
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { BasicErrorStateMatcher } from '../../error-state-matchers';
+import { SignInRequest } from '../../auth.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['../../auth.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
+export class LoginComponent {
+  /*loginForm!: FormGroup;
   credentials: { email: string, password: string } = { email: '', password: '' };
   errorMessage: string = '';
 
@@ -60,5 +66,37 @@ export class LoginComponent implements OnInit {
         console.error('Error login: ', err);
       }
     });
+  }*/
+
+  /* Input/Output */
+  @Input() disabled = false;
+  @Output() formSubmitted = new EventEmitter<SignInRequest>();
+  /* Password Visibility */
+  isPasswordVisible = false;
+  /* Form */
+  form = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+  });
+  matcher = new BasicErrorStateMatcher();
+
+  constructor(private fb: FormBuilder) {}
+
+  toggleVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
+
+  onFormSubmit(): void {
+    if (this.form.valid) {
+      this.formSubmitted.emit(<SignInRequest>this.form.value);
+    }
+  }
+
+  /* Getters to access form controls */
+  get email(): FormControl {
+    return this.form.get('email')! as FormControl;
+  }
+  get password(): FormControl {
+    return this.form.get('password')! as FormControl;
   }
 }

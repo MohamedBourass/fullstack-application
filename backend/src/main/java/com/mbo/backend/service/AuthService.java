@@ -8,6 +8,5 @@ import org.springframework.security.authentication.BadCredentialsException;
 
 public interface AuthService {
     AuthenticationResponse authenticate(AuthenticationRequest request) throws BadCredentialsException;
-
     BaseResponseBody register(RegisterRequest request);
 }
