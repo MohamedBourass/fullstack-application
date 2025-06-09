@@ -1,6 +1,6 @@
 package com.mbo.backend.controller;
 
-import com.mbo.backend.model.User;
+import com.mbo.backend.entity.User;
 import com.mbo.backend.repository.UserRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class UserController {
         this.repository = repository;
     }
 
-    @GetMapping("/users")
+    @GetMapping
     List<User> all() {
         return repository.findAll();
     }

@@ -1,7 +1,7 @@
 package com.mbo.backend;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mbo.backend.model.Country;
+import com.mbo.backend.entity.Item;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class CountryControllerTest {
+public class ItemControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -28,9 +28,9 @@ public class CountryControllerTest {
 
     @Test
     @SneakyThrows
-    public void testGetCountry() {
+    public void testGetItem() {
         String responseBody = this.mockMvc
-                .perform(MockMvcRequestBuilders.get("/api/v1/country/all"))
+                .perform(MockMvcRequestBuilders.get("/api/v1/item"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(content().contentType("application/json"))
                 .andReturn()
@@ -38,8 +38,8 @@ public class CountryControllerTest {
                 .getContentAsString();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        Country[] countries = objectMapper.readValue(responseBody, Country[].class);
-        assertThat(countries.length).isEqualTo(54);
+        Item[] itemArray = objectMapper.readValue(responseBody, Item[].class);
+        assertThat(itemArray.length).isEqualTo(2);
 
     }
 }

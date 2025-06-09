@@ -1,8 +1,8 @@
 package com.mbo.backend;
 
 import com.mbo.backend.config.SecurityConfig;
-import com.mbo.backend.controller.CountryController;
-import com.mbo.backend.model.Country;
+import com.mbo.backend.controller.UserController;
+import com.mbo.backend.entity.Category;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +44,7 @@ public class BackApplicationTests {
 
         //Check beans are well loaded in the context
         assertThat(context.getBean(SecurityConfig.class)).isNotNull();
-        assertThat(context.getBean(CountryController.class)).isNotNull();
+        assertThat(context.getBean(UserController.class)).isNotNull();
     }
 
     @BeforeAll
@@ -52,14 +52,15 @@ public class BackApplicationTests {
     }
 
     @Test
-    public void testGetCountry() {
-        String url = "http://localhost:" + port + "/api/v1/country/all";
-        ResponseEntity<Country[]> response = restTemplate.getForEntity(url, Country[].class);
-        Country[] countries = response.getBody();
+    public void testGetCategory() {
+        String url = "http://localhost:" + port + "/api/v1/category";
+
+        ResponseEntity<Category[]> response = restTemplate.getForEntity(url, Category[].class);
+        Category[] categoryArray = response.getBody();
 
         SoftAssertions softly = new SoftAssertions();
         softly.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        softly.assertThat(countries).isNotNull().hasSize(54);
+        softly.assertThat(categoryArray).isNotNull().hasSize(1);
         softly.assertAll();
     }
 }

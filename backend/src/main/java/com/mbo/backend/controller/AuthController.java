@@ -1,55 +1,57 @@
 package com.mbo.backend.controller;
 
-import com.mbo.backend.helpers.JwtUtil;
-import com.mbo.backend.model.User;
-import com.mbo.backend.repository.UserRepository;
+import com.mbo.backend.dto.request.AuthenticationRequest;
+import com.mbo.backend.dto.request.RegisterRequest;
+import com.mbo.backend.dto.response.AuthenticationResponse;
+import com.mbo.backend.dto.response.BaseResponseBody;
 import com.mbo.backend.service.AuthService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/auth")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequiredArgsConstructor
 public class AuthController {
-    private final JwtUtil jwtUtil = new JwtUtil();
 
-    private final AuthService authService;
+    private final AuthService authenticationService;
 
-    private UserRepository userRepository;
-
-    public AuthController(AuthService authService) {
-        this.authService = authService;
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> register(@RequestBody User user) {
-        return ResponseEntity.ok(authService.register(user));
+    public ResponseEntity<BaseResponseBody> register(
+            @Valid @RequestBody RegisterRequest request
+    ) throws Exception {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(authenticationService.register(request));
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Map<String,Object>> login(@RequestParam String email, @RequestParam String password) {
-        return authService.login(email, password)
-                .map(user -> {
-                    Map<String, Object> response = new HashMap<>();
-                    response.put("token", jwtUtil.generateToken(user));
-                    response.put("message", "Login successful");
-                    response.put("user", user.getEmail());
-                    response.put("roles", user.getRoles());
-                    return ResponseEntity.ok(response);
-                })
-                .orElse(ResponseEntity.status(401).body(null));
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(
+            @Valid @RequestBody AuthenticationRequest request
+    ) throws BadCredentialsException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(authenticationService.authenticate(request));
     }
 
-    @GetMapping("/me")
-    public ResponseEntity<User> getCurrentUser(@RequestHeader(value = "Authorization", required = false) String token) {
-        if(token == null || !token.startsWith("Bearer ")) {
-            return ResponseEntity.status(403).body(null);
-        }
+    /*@GetMapping("/me")
+    public ResponseEntity<UserDto> me () throws UserNotFoundException, UserNotAuthenticatedException {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(modelMapper.map(authenticationService.me(), UserDTO.class));
+    }*/
 
-        String email = jwtUtil.extractUsername(token.replace("Bearer ", ""));
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new RuntimeException("Unknown user"));
-        return ResponseEntity.ok(new User(user.getId(), user.getEmail(), user.getPassword(), user.getRoles()));
-    }
 }
