@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) },
   { path: 'error', loadChildren: () => import('./modules/error/error.module').then(m => m.ErrorModule) },
-  { path: '**', redirectTo: '/error/404' }
+  //{ path: '**', redirectTo: '/error/404' }
 ];
 
 @NgModule({

@@ -16,10 +16,10 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
-@RestController
-@RequestMapping("/api/v1/auth")
 @CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
+@RestController
+@RequestMapping("/api/v1/auth")
 public class AuthController {
 
     private final AuthService authenticationService;

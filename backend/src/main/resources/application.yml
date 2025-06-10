@@ -21,7 +21,7 @@ spring:
       name: admin
       password: $2a$10$xmrGfPaCtiVDppuavftr6.dfLjBe4HANT00oRKODNW.t25Ss5JYMW
   datasource:
-    url: "jdbc:h2:file:~/backend/src/main/resources/db/demo"
+    url: "jdbc:h2:file:~/backend/src/main/resources/db/demo;DB_CLOSE_ON_EXIT=FALSE;"
     #url: "jdbc:h2:./target/db;DB_CLOSE_ON_EXIT=FALSE;"
     #url: "jdbc:h2:file:~/testdb"
     #url: jdbc:h2:mem:testdb

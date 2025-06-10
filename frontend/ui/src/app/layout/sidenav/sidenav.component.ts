@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
-//import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-sidenav',

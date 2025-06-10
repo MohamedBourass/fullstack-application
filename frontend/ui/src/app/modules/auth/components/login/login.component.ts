@@ -1,13 +1,13 @@
 /*import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../../core/auth.service';
-import { TokenStorageService } from '../../../../core/token-storage.service';
+import { AuthService } from 'src/app/core/auth.service';
+import { TokenStorageService } from 'src/app/core/token-storage.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';*/
 
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { BasicErrorStateMatcher } from '../../error-state-matchers';
-import { SignInRequest } from '../../auth.model';
+import { BasicErrorStateMatcher } from 'src/app/modules/auth/error-state-matchers';
+import { SignInRequest } from 'src/app/modules/auth/auth.model';
 
 @Component({
   selector: 'app-login',

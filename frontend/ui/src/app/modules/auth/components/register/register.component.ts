@@ -1,10 +1,10 @@
 /*import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../../core/auth.service';*/
+import { AuthService } from 'src/app/core/auth.service';*/
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { equalFieldsValidator } from '../../equal-fields.validator';
-import { EqualFieldsErrorStateMatcher, BasicErrorStateMatcher } from '../../error-state-matchers';
-import { SignUpRequest } from '../../auth.model';
+import { equalFieldsValidator } from 'src/app/modules/auth/equal-fields.validator';
+import { EqualFieldsErrorStateMatcher, BasicErrorStateMatcher } from 'src/app/modules/auth/error-state-matchers';
+import { SignUpRequest } from 'src/app/modules/auth/auth.model';
 
 @Component({
   selector: 'app-register',

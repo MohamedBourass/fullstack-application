@@ -17,8 +17,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class BackApplicationTests {
 
     @LocalServerPort
@@ -33,10 +33,8 @@ public class BackApplicationTests {
     @Autowired
     private ApplicationContext context;
 
-
-    @Test
-    @Order(1)
-    public void checkIsLoaded() {
+    @BeforeAll
+    public void setUp() {
         assertThat(port).isNotNull();
         assertThat(securityFilterChain).isNotNull();
         assertThat(restTemplate).isNotNull();
@@ -45,10 +43,6 @@ public class BackApplicationTests {
         //Check beans are well loaded in the context
         assertThat(context.getBean(SecurityConfig.class)).isNotNull();
         assertThat(context.getBean(UserController.class)).isNotNull();
-    }
-
-    @BeforeAll
-    public static void setUp() {
     }
 
     @Test

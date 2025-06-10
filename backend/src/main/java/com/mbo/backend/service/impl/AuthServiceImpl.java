@@ -5,7 +5,7 @@ import com.mbo.backend.dto.request.RegisterRequest;
 import com.mbo.backend.dto.response.AuthenticationResponse;
 import com.mbo.backend.dto.response.BaseResponseBody;
 
-import com.mbo.backend.error.UserNotFoundException;
+import com.mbo.backend.exception.UserNotFoundException;
 
 import com.mbo.backend.entity.User;
 import com.mbo.backend.repository.UserRepository;
