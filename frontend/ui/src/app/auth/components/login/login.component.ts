@@ -6,8 +6,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';*/
 
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { BasicErrorStateMatcher } from 'src/app/modules/auth/error-state-matchers';
-import { SignInRequest } from 'src/app/modules/auth/auth.model';
+import { BasicErrorStateMatcher } from 'src/app/auth/error-state-matchers';
+import { SignInRequest } from 'src/app/auth/auth.model';
 
 @Component({
   selector: 'app-login',

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Status } from 'src/app/modules/auth/status.model';
+import { Status } from 'src/app/auth/status.model';
 
 @Component({
   selector: 'app-status',

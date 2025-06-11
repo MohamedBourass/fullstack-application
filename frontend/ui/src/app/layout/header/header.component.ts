@@ -4,7 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 //import { IsLoggedDirective } from 'src/app/auth/directives/is-logged.directive';
 import { AuthService } from 'src/app/core/auth.service';
 //import { CartService } from 'src/app/services/cart.service';
-import { LogoutConfirmationDialogComponent } from 'src/app/modules/auth/components/logout-confirmation-dialog/logout-confirmation-dialog.component';
+import { LogoutConfirmationDialogComponent } from 'src/app/auth/components/logout-confirmation-dialog/logout-confirmation-dialog.component';
 import { EMPTY, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
