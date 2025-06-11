@@ -13,14 +13,14 @@ export class AuthGuard implements CanActivate {
     const requiresAuth = route.data['requiresAuth'] ?? true;
 
     if(requiresAuth) {
-      if (this.authService.isLoggedIn()) {
+      if (this.authService.isAuthenticated$) {
         return true;
       } else {
         this.router.navigate(['/unauthorized']);
         return false;
       }
     } else {
-      if (!this.authService.isLoggedIn()) {
+      if (!this.authService.isAuthenticated$) {
         return true;
       } else {
         this.router.navigate(['/unauthorized']); // Redirection si connecté

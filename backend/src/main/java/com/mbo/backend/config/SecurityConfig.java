@@ -33,7 +33,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
         return http.build();*/
 
-        /*http.cors(Customizer.withDefaults()) // Active CORS
+        http.cors(Customizer.withDefaults()) // Active CORS
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/h2-console/**").permitAll() // Autorise H2 Console
@@ -41,9 +41,9 @@ public class SecurityConfig {
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated())
                 .headers(headers -> headers.frameOptions(frame -> frame.disable())); // Autorise l'affichage de H2 en iframe
-        */
 
-        http
+
+        /*http
                 .cors(Customizer.withDefaults()) // Active CORS
                 // Disable csrf
                 .csrf(csrf -> csrf.disable())
@@ -61,7 +61,7 @@ public class SecurityConfig {
                 // Set authentication provider
                 .authenticationProvider(authenticationProvider)
                 // Add jwtAuthFilter before the UsernamePasswordAuthenticationFilter
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);*/
 
         return http.build();
     }

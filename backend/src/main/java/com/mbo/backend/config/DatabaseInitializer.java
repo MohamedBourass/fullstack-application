@@ -9,7 +9,6 @@ import com.mbo.backend.repository.ItemRepository;
 import com.mbo.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -33,11 +32,15 @@ public class DatabaseInitializer implements CommandLineRunner {
     public void run(String... args) {
 
         Category category1 = Category.builder().name("todo").description("todo list").build();
-        //ItemCategory category2 = ItemCategory.builder().name("").description("").build();
-        //ItemCategory category3 = ItemCategory.builder().name("").description("").build();
+        //Category category2 = Category.builder().name("courses").description("courses").build();
+        //Category category3 = Category.builder().name("work").description("").build();
 
         categoryRepository.saveAll(
-                List.of(category1)
+                List.of(category1
+                        //, category2
+                        //, category3
+                        )
+
         );
 
         itemRepository.saveAll(

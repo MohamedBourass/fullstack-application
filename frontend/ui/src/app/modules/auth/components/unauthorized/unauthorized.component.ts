@@ -9,10 +9,10 @@ import { AuthService } from 'src/app/core/auth.service';
 })
 export class UnauthorizedComponent {
 
-  isLoggedIn: boolean;
+  isLoggedIn: any;
 
   constructor(private authService: AuthService, private router: Router) {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    this.isLoggedIn = this.authService.isAuthenticated$;
   }
 
   goHome(): void {

@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         }
         // Get authenticated user
         String email = authentication.getName();
-        User user = userRepository.findByEmail(email).orElseThrow(UserNotFoundException::new);
+        User user = userRepository.findByEmail(email).orElseThrow(()-> new UserNotFoundException(1L)); //TODO
         // Update and Save user
         user.setFirstname(userUpdateRequest.getFirstname());
         user.setLastname(userUpdateRequest.getLastname());

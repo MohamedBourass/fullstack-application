@@ -9,7 +9,7 @@ export class FooterComponent {
   @Input() title!: string;
   private year = new Date().getFullYear();
 
-  project = 'angular-ecommerce';
-  copyrightLine1 = `Powered by st.and©${this.year}.`;
+  project = 'Ticket management system';
+  copyrightLine1 = `Powered by MBO ©${this.year}.`;
   copyrightLine2 = 'Code licensed under an MIT License.';
 }

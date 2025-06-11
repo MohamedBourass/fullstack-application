@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, distinctUntilChanged, map, tap, concatMap, EMPTY, catchError, of, startWith, delay } from 'rxjs';
-import { SignInRequest, SignInResponse, SignUpRequest, SignUpResponse, User } from '../shared/models/auth.model';
+import { SignInRequest, SignInResponse, SignUpRequest, SignUpResponse, User } from './auth.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { JwtService } from './jwt.service';
