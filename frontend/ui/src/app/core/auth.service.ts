@@ -22,7 +22,7 @@ export class AuthService {
   public logout(): void {
     this.jwtService.destroyToken();
     this.currentUserSubject$.next(null);
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/');
   }
 
   // POST /auth/register {credentials}

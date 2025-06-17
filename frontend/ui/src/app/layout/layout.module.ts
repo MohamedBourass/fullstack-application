@@ -8,12 +8,18 @@ import { FooterComponent } from './footer/footer.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SidenavComponent],
+  declarations: [HeaderComponent
+    , FooterComponent
+    //, SidenavComponent
+    ],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule
     ]
-  ,exports: [HeaderComponent, FooterComponent, SidenavComponent]
+  ,exports: [HeaderComponent
+    , FooterComponent
+    //, SidenavComponent
+    ]
 })
 export class LayoutModule { }

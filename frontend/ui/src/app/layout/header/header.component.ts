@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Subject, takeUntil } from 'rxjs';
 //import { IsLoggedDirective } from 'src/app/auth/directives/is-logged.directive';
 import { AuthService } from 'src/app/core/auth.service';
-//import { CartService } from 'src/app/services/cart.service';
 import { LogoutConfirmationDialogComponent } from 'src/app/auth/components/logout-confirmation-dialog/logout-confirmation-dialog.component';
 import { EMPTY, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -14,7 +13,7 @@ import { catchError, tap } from 'rxjs/operators';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnDestroy {
-  /* BrandName */
+
   @Input() title!: string;
   /* Injection */
   //authService = inject(AuthService);
@@ -24,7 +23,6 @@ export class HeaderComponent implements OnDestroy {
   private destroy$ = new Subject<void>();
 
   constructor(
-    //public cartService: CartService,
     public authService: AuthService,
     public dialog: MatDialog
   ) {
