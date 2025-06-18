@@ -1,15 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Subject, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  @Output() newQueryEvent = new EventEmitter<string>();
+  /* Form */
+  public searchField: FormControl = new FormControl();;
+  public searchForm: FormGroup;
+  /* Events */
+  private destroy$ = new Subject<void>();
+
+  constructor(private formBuilder: FormBuilder) {
+    this.searchForm = formBuilder.group({ search: this.searchField })
+  }
 
   ngOnInit(): void {
+    this.searchField.valueChanges
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged(),
+        takeUntil(this.destroy$)
+        )
+      .subscribe((q) => {
+        this.newQueryEvent.next(q);
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  onClear(): void {
+    this.searchField.setValue('');
+    // Avoid debounceTime
+    this.newQueryEvent.next('');
   }
 
 }

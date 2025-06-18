@@ -1,8 +1,9 @@
 # Frontend application
 
-- The aim of this frontend is to be a gallery of demos for the most interesting angular plugins for web developers.
+- The aim of this frontend is to be a relevant example of a CRUD application with authentication system.
 - This frontend application will interact with a REST api which is commonly called the backend.
 - By default, the frontend application runs on the URL [http://localhost:4200](http://localhost:4200)
+- The architecture
 
 ## Useful Angular plugins 
 

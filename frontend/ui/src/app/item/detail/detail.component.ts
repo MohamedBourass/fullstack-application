@@ -2,10 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, catchError, filter, map, of, switchMap, take, takeLast, takeUntil, takeWhile, tap } from 'rxjs';
 //import { CartService } from 'src/app/services/cart.service';
-import { ProductCategoryService } from 'src/app/services/product-category.service';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductCategoryService } from 'src/app/core/product-category.service';
+import { ProductService } from 'src/app/core/product.service';
 import { Product } from 'src/app/shared/models/product.model';
-import { Status } from 'src/app/shared/models/status.model';
+import { Status } from 'src/app/auth/status.model';
 
 @Component({
   selector: 'app-detail',
@@ -70,8 +70,8 @@ export class DetailComponent implements OnInit, OnDestroy {
       this.destroy$.complete();
     }
 
-    /*public addProductToCart(id: number): void {
-      this.cartService.addProduct(id);
-    }*/
+    public addProductToCart(id: number): void {
+      //this.cartService.addProduct(id);
+    }
 
 }

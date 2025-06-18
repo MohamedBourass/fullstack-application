@@ -8,6 +8,7 @@ import { AuthGuard } from './auth/auth.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'item', loadChildren: () => import('./item/item.module').then(m => m.ItemModule) },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
   { path: 'error', loadChildren: () => import('./features/error/error.module').then(m => m.ErrorModule) },
   //{ path: '**', redirectTo: '/error/404' }

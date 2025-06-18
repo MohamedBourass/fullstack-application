@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, delay, of, take, tap, throwError } from 'rxjs';
 import { Product } from '../shared/models/product.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { environment } from 'src/environments/environment.development';
-import { PageableResponse } from '../shared/models/pageable.response.model';
+import { environment } from 'src/environments/environment';
+import { PageableResponse } from 'src/app/shared/models/pageable.response.model';
 
 @Injectable({
   providedIn: 'root',
@@ -45,7 +45,7 @@ export class ProductService {
         .get<Product[]>(`${this.API_URL}?category=${categoryName}`)
         .pipe(catchError(this.handleError))
   );
- 
+
   productsByQuery$ = (query: string): Observable<Product[]> => {
     if (query.trim() === '') {
       return of([]);
