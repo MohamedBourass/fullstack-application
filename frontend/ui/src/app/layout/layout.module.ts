@@ -10,7 +10,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 @NgModule({
   declarations: [HeaderComponent
     , FooterComponent
-    //, SidenavComponent
+    , SidenavComponent
     ],
   imports: [
     CommonModule,
@@ -19,7 +19,7 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     ]
   ,exports: [HeaderComponent
     , FooterComponent
-    //, SidenavComponent
+    , SidenavComponent
     ]
 })
 export class LayoutModule { }
