@@ -6,7 +6,7 @@
     <!-- NAV -->
     <nav>
         <a mat-button routerLink="/">Home</a>
-        <a mat-button routerLink="/items">Items</a>
+        <a mat-button routerLink="/item">Items</a>
         <a mat-button *ngIf="authService.isAuthenticated$" routerLink="/profile">Profile</a>
         <a mat-button *ngIf="!authService.isAuthenticated$" routerLink="/register">Register</a>
         <a mat-button *ngIf="authService.isAuthenticated$" (click)="logout()">Logout</a>
