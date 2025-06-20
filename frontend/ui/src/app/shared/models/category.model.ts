@@ -1,6 +1,5 @@
-export interface ProductCategory {
+export interface Category {
     id: number;
     name: string;
     description: string;
 }
-  

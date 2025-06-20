@@ -3,13 +3,13 @@ import { MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, combineLatest, delay, map, switchMap, take, takeUntil, tap } from 'rxjs';
 //import { CartService } from 'src/app/services/cart.service';
-import { ProductCategoryService } from 'src/app/core/product-category.service';
-import { ProductService } from 'src/app/core/product.service';
+import { CategoryService } from 'src/app/core/category.service';
+import { ItemService } from 'src/app/core/item.service';
 import { PaginatorOpts } from 'src/app/shared/models/paginator.opts.model';
-import { Product } from 'src/app/shared/models/product.model';
+import { Item } from 'src/app/shared/models/item.model';
 
 @Component({
-  selector: 'app-products',
+  selector: 'app-items',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
@@ -28,11 +28,11 @@ export class ItemComponent implements OnInit, OnDestroy {
   pageSize = this.paginatorOpts$.value.pageSize;
   pageIndex = this.paginatorOpts$.value.pageIndex;
   /* States (2)*/
-  public products$: Observable<Product[]> =
+  public items$: Observable<Item[]> =
     combineLatest([this.query$.pipe(takeUntil(this.destroy$)), this.paginatorOpts$.pipe(takeUntil(this.destroy$))])
       .pipe(
         tap(() => this.loadingStatusSubject$.next(true)),
-        switchMap(([query, {pageIndex, pageSize}]) => this.productService.products$(query, pageIndex, pageSize)),
+        switchMap(([query, {pageIndex, pageSize}]) => this.itemService.items$(query, pageIndex, pageSize)),
         tap(() => this.loadingStatusSubject$.next(false)),
         tap(res => this.length = res.total),
         map(res => res.list),
@@ -40,8 +40,8 @@ export class ItemComponent implements OnInit, OnDestroy {
       );
 
   constructor(
-    public productCategoryService: ProductCategoryService,
-    public productService: ProductService,
+    public categoryService: CategoryService,
+    public itemService: ItemService,
     //private cartService: CartService,
     private router: Router,
   ) {}
@@ -71,8 +71,8 @@ export class ItemComponent implements OnInit, OnDestroy {
   //  this.cartService.addProduct(id);
   //}
 
-  selectProduct(id: number) {
-    this.router.navigate(['/products', id]).then();
+  selectItem(id: number) {
+    this.router.navigate(['/items', id]).then();
   }
 
   handlePageEvent(e: PageEvent): void {

@@ -2,9 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, catchError, filter, map, of, switchMap, take, takeLast, takeUntil, takeWhile, tap } from 'rxjs';
 //import { CartService } from 'src/app/services/cart.service';
-import { ProductCategoryService } from 'src/app/core/product-category.service';
-import { ProductService } from 'src/app/core/product.service';
-import { Product } from 'src/app/shared/models/product.model';
+import { CategoryService } from 'src/app/core/category.service';
+import { ItemService } from 'src/app/core/item.service';
+import { Item } from 'src/app/shared/models/item.model';
 import { Status } from 'src/app/auth/status.model';
 
 @Component({
@@ -24,18 +24,18 @@ export class DetailComponent implements OnInit, OnDestroy {
         filter(Boolean),
         tap(id => this.id = id)
       );
-    public product$: Observable<Product | null> = this.idParamMap$
+    public item$: Observable<Item | null> = this.idParamMap$
       .pipe(
-        switchMap(productId =>  this.productService.product$(parseInt(productId))),
+        switchMap(itemId =>  this.itemService.item$(parseInt(itemId))),
         catchError(err => of(null))
       );
 
     constructor(
       private route: ActivatedRoute,
       private router: Router,
-      private productService: ProductService,
+      private itemService: ItemService,
       //private cartService: CartService,
-      public productCategoryService: ProductCategoryService
+      public categoryService: CategoryService
     ) {}
 
     ngOnInit(): void {
@@ -48,13 +48,13 @@ export class DetailComponent implements OnInit, OnDestroy {
           () => this.status$.next('pending')
         );
       // [Set] status$ 'succces' or 'error' [When] product$ emit
-      this.product$
+      this.item$
         .pipe(
           takeUntil(this.destroy$)
         )
         .subscribe(
-          product => {
-            if (product) {
+          item => {
+            if (item) {
               this.status$.next('success')
             } else {
               this.status$.next('error')
@@ -70,7 +70,7 @@ export class DetailComponent implements OnInit, OnDestroy {
       this.destroy$.complete();
     }
 
-    public addProductToCart(id: number): void {
+    public addItemToCart(id: number): void {
       //this.cartService.addProduct(id);
     }
 

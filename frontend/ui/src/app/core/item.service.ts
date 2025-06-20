@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, catchError, delay, of, take, tap, throwError } from 'rxjs';
-import { Product } from '../shared/models/product.model';
+import { Item } from '../shared/models/item.model';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { PageableResponse } from 'src/app/shared/models/pageable.response.model';
@@ -8,16 +8,16 @@ import { PageableResponse } from 'src/app/shared/models/pageable.response.model'
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
-  API_URL = `${environment.apiUrl}/product`;
+export class ItemService {
+  API_URL = `${environment.apiUrl}/item`;
 
   constructor(private http: HttpClient) {}
 
   // GET /product?q=[q]&pageIndex=[pageIndex]&pageSize=[pageSize]  {}
-  products$ = (q: string, pageIndex: number, pageSize: number) =>
-    <Observable<PageableResponse<Product>>>(
+  items$ = (q: string, pageIndex: number, pageSize: number) =>
+    <Observable<PageableResponse<Item>>>(
       this.http
-        .get<PageableResponse<Product>>(
+        .get<PageableResponse<Item>>(
           `${this.API_URL}?q=${q}&pageNumber=${pageIndex}&pageSize=${pageSize}`
         )
         .pipe(
@@ -27,10 +27,10 @@ export class ProductService {
     );
 
   // GET /product/[id] {}
-  product$ = (id: number) =>
-    <Observable<Product>>(
+  item$ = (id: number) =>
+    <Observable<Item>>(
       this.http
-        .get<Product>(`${this.API_URL}/${id}`)
+        .get<Item>(`${this.API_URL}/${id}`)
         .pipe(
           take(1),
           // delay(1000), // (D)

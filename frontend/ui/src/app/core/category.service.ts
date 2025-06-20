@@ -2,36 +2,36 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { take, startWith, Observable, catchError, of, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ProductCategory } from 'src/app/shared/models/product.category.model';
+import { Category } from 'src/app/shared/models/category.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductCategoryService {
+export class CategoryService {
   API_URL = `${environment.apiUrl}/category`;
-  categories!: ProductCategory[];
+  categories!: Category[];
 
   constructor(private http: HttpClient) {
-    this.productCategories$.pipe(take(1), startWith([])).subscribe(categories => {
+    this.categories$.pipe(take(1), startWith([])).subscribe(categories => {
       this.categories = categories;
     });
   }
 
   // GET /category {}
-  productCategories$ = <Observable<ProductCategory[]>> this.http.get<ProductCategory[]>(`${this.API_URL}`).pipe(catchError(this.handleError));
+  categories$ = <Observable<Category[]>> this.http.get<Category[]>(`${this.API_URL}`).pipe(catchError(this.handleError));
 
 
   // GET /category/[id] {}
-  public getProductCategory(id: number): Observable<ProductCategory> {
+  public getCategory(id: number): Observable<Category> {
     // Attempt to find the product category in the local cache
-    var productCategory = this.categories.find((x) => x.id == id);
-    if (productCategory) {
+    var category = this.categories.find((x) => x.id == id);
+    if (category) {
       // If found in the cache, return it
-      return of(productCategory);
+      return of(category);
     } else {
       // If not found in the cache, fetch it from the API
       return this.http
-        .get<ProductCategory>(`${this.API_URL}/${id}`)
+        .get<Category>(`${this.API_URL}/${id}`)
         .pipe(
           // Update the local cache with the fetched category data
           tap((newCategory) => {
