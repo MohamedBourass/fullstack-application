@@ -7,9 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class FooterComponent {
   @Input() title!: string;
+
   private year = new Date().getFullYear();
 
   project = 'Ticket management system';
   copyrightLine1 = `Powered by MBO ©${this.year}.`;
-  copyrightLine2 = 'Code licensed under an MIT License.';
+  copyrightLine2 = 'Built with ❤️ In Morocco';
 }

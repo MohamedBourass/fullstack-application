@@ -5,12 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AgGridModule } from 'ag-grid-angular';
-
-//Custom modules
-import { AuthModule } from './auth/auth.module';
-import { HomeModule } from './features/home/home.module';
-import { ProfileComponent } from './features/profile/profile.component';
 
 //Root
 import { AppComponent } from './app.component';
@@ -18,6 +12,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './layout/layout.module';
 import { MaterialModule } from './material.module';
 
+//Custom modules
+import { AuthModule } from './auth/auth.module';
+import { HomeModule } from './features/home/home.module';
+import { ProfileComponent } from './features/profile/profile.component';
 import { ErrorModule } from './features/error/error.module';
 
 @NgModule({
@@ -28,7 +26,6 @@ import { ErrorModule } from './features/error/error.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AgGridModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
