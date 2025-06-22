@@ -6,13 +6,13 @@
     margin-top: 40px;
 }
 
-.product-container {
+.item-container {
     margin-top: 40px;
     width: 100%;
     height: fit-content;
 }
 
-.product-image {
+.item-image {
     background-color: white;
     padding: 4%;
     width: 37%;
@@ -21,14 +21,14 @@
     border-radius: 30px;
 }
 
-.product-short-details {
+.item-short-details {
     padding: 0 4%;
     width: 47%;
     min-width: 400px;
     float: left;
 }
 
-.product-short-description {
+.item-short-description {
     margin-top: 20px;
     font-style: italic;
     text-align: justify;
@@ -47,7 +47,7 @@
     align-items: center;
 }
 
-.product-name {
+.item-name {
     margin: 0;
 }
 

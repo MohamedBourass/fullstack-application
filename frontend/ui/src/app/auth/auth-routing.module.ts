@@ -9,16 +9,16 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
-    path: 'register',
-    component: RegisterComponent,
-    //canActivate: [AuthGuard],
-    //data: { requiresAuth: false }
+    path: 'register'
+    , component: RegisterComponent
+    //, canActivate: [AuthGuard]
+    //, data: { requiresAuth: false }
   },
   {
-    path: 'login',
-    component: LoginComponent,
-    //canActivate: [AuthGuard],
-    //data: { requiresAuth: false }
+    path: 'login'
+    , component: LoginComponent
+    //, canActivate: [AuthGuard],
+    //, data: { requiresAuth: false }
   },
   {
     path: 'unauthorized',

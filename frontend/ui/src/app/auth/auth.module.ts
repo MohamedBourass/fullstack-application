@@ -22,11 +22,11 @@ import { LogoutConfirmationDialogComponent } from './components/logout-confirmat
     , LogoutConfirmationDialogComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    AuthRoutingModule
+    CommonModule
+    , FormsModule
+    , ReactiveFormsModule
+    , MaterialModule
+    , AuthRoutingModule
   ]
   ,exports: [
     LoginComponent

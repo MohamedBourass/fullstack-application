@@ -4,19 +4,15 @@
 
 <div *ngIf="(status$ | async) == 'success'">
   <div *ngIf="item$ | async as item" class="container">
-    <!-- BREADCRUMB -->
     <i class="gray">{{ (categoryService.getCategory(item.categoryId) | async)?.name || "..." }} / {{ item.name }} </i>
-    <!-- PRODUCT -->
-    <div class="product-container">
-      <div class="product-image">
+    <div class="item-container">
+      <div class="item-image">
         <!--<img [src]="product.image">-->
       </div>
-      <!-- SHORT DETAILS -->
-      <div class="product-short-details">
-        <h2 class="product-name"> {{ item.name }} </h2>
+      <div class="item-short-details">
+        <h2 class="item-name"> {{ item.name }} </h2>
         <div class="gray"> {{ (categoryService.getCategory(item.categoryId) | async)?.name || "..." }} </div>
-        <!-- SHORT DESCRIPTION -->
-        <div class="product-short-description"> {{item.shortDescription}} </div>
+        <div class="item-short-description"> {{item.shortDescription}} </div>
         <!-- DESCRIPTION -->
         <!--<div class="product-description"> {{product.description}} </div>
         <hr>

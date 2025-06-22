@@ -1,7 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject, catchError, filter, map, of, switchMap, take, takeLast, takeUntil, takeWhile, tap } from 'rxjs';
-//import { CartService } from 'src/app/services/cart.service';
 import { CategoryService } from 'src/app/core/category.service';
 import { ItemService } from 'src/app/core/item.service';
 import { Item } from 'src/app/shared/models/item.model';
@@ -13,9 +12,12 @@ import { Status } from 'src/app/auth/status.model';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit, OnDestroy {
-    /* Events */
+
+    private route = inject(ActivatedRoute);
+    private router = inject(Router);
+    private itemService = inject(ItemService);
+    public categoryService = inject(CategoryService);
     private destroy$ = new Subject<void>();
-    /* States */
     public id = "";
     public status$ = new BehaviorSubject<Status>('initial');
     private idParamMap$ = this.route.paramMap
@@ -29,14 +31,6 @@ export class DetailComponent implements OnInit, OnDestroy {
         switchMap(itemId =>  this.itemService.item$(parseInt(itemId))),
         catchError(err => of(null))
       );
-
-    constructor(
-      private route: ActivatedRoute,
-      private router: Router,
-      private itemService: ItemService,
-      //private cartService: CartService,
-      public categoryService: CategoryService
-    ) {}
 
     ngOnInit(): void {
       // [Set] status$ 'pending' [When] idParamMap$ emit
@@ -62,7 +56,6 @@ export class DetailComponent implements OnInit, OnDestroy {
             }
           }
         )
-
     }
 
     ngOnDestroy(): void {
@@ -73,5 +66,4 @@ export class DetailComponent implements OnInit, OnDestroy {
     public addItemToCart(id: number): void {
       //this.cartService.addProduct(id);
     }
-
 }

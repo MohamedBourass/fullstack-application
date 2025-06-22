@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable, BehaviorSubject, distinctUntilChanged, map, tap, concatMap, EMPTY, catchError, of, startWith, delay } from 'rxjs';
 import { SignInRequest, SignInResponse, SignUpRequest, SignUpResponse, User } from 'src/app/auth/auth.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { JwtService } from './jwt.service';
+import { JwtService } from 'src/app/core/jwt.service';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 export class AuthService {
   private API_URL = `${environment.apiUrl}/auth`;
 
+  private http = inject(HttpClient);
+  private jwtService = inject(JwtService);
+  private router = inject(Router);
+
   public currentUserSubject$: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
   public currentUser$: Observable<User | null> = this.currentUserSubject$.asObservable().pipe(startWith(this.currentUserSubject$.getValue()), distinctUntilChanged());
 
   public isAuthenticated$: Observable<boolean> = this.currentUserSubject$.asObservable().pipe(map((user) => !!user));
-
-  constructor(private http: HttpClient, private jwtService: JwtService, private router: Router) {}
 
   public logout(): void {
     this.jwtService.destroyToken();
@@ -38,7 +40,7 @@ export class AuthService {
   // POST /auth/authenticate {credentials}
   public signIn$(credentials: SignInRequest): Observable<boolean> {
     return this.http
-      .post<SignInResponse>(`${this.API_URL}/authenticate`, credentials)
+      .post<SignInResponse>(`${this.API_URL}/login`, credentials)
       .pipe(
         delay(1000), // (D)
         tap((res) => this.jwtService.saveToken(res.token)),
