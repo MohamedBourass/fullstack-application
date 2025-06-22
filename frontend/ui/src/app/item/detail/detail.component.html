@@ -14,9 +14,9 @@
         <div class="gray"> {{ (categoryService.getCategory(item.categoryId) | async)?.name || "..." }} </div>
         <div class="item-short-description"> {{item.shortDescription}} </div>
         <!-- DESCRIPTION -->
-        <!--<div class="product-description"> {{product.description}} </div>
+        <!--<div class="item-description"> {{product.description}} </div>
         <hr>
-        <div class="product-footer">
+        <div class="item-footer">
           <div *ngIf="product.quantity >= 1; then inStock else outStock"></div>
           <ng-template #inStock>
                         <span class="price">
