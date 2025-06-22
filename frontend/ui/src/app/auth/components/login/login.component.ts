@@ -7,21 +7,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';*/
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BasicErrorStateMatcher } from 'src/app/auth/error-state-matchers';
-import { SignInRequest } from 'src/app/auth/auth.model';
+//import { SignInRequest } from 'src/app/auth/auth.model';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['../../auth.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'app-login'
+  , templateUrl: './login.component.html'
+  , styleUrls: ['../../auth.component.scss']
 })
 export class LoginComponent {
 
-  @Input() disabled = false;
-  @Output() formSubmitted = new EventEmitter<SignInRequest>();
-  isPasswordVisible = false;
+  constructor(private formBuilder: FormBuilder) {}
 
-  private formBuilder = inject(FormBuilder);
+  @Input() disabled = false;
+  //@Output() formSubmitted = new EventEmitter<SignInRequest>();
+  isPasswordVisible = false;
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
@@ -34,9 +33,9 @@ export class LoginComponent {
   }
 
   onFormSubmit(): void {
-    if (this.loginForm.valid) {
+    /*if (this.loginForm.valid) {
       this.formSubmitted.emit(<SignInRequest>this.loginForm.value);
-    }
+    }*/
   }
 
   get email(): FormControl {

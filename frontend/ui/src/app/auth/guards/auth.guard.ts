@@ -7,11 +7,6 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  /*constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}*/
-
   private authService = inject(AuthService);
   private router = inject(Router);
 

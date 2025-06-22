@@ -20,7 +20,7 @@
   </form>
   <p>Déjà inscrit ? <a routerLink="/login">Connectez-vous ici</a></p>
 </div>-->
-<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
   <mat-form-field>
     <mat-label>Email</mat-label>
     <mat-icon matPrefix color="primary">email</mat-icon>
@@ -71,15 +71,14 @@
       <mat-icon *ngIf="isPasswordRepeatVisible">visibility</mat-icon>
       <mat-icon *ngIf="!isPasswordRepeatVisible">visibility_off</mat-icon>
     </button>
-    <mat-error *ngIf="this.passwordRepeat.hasError('required') && !form.hasError('equalFields')">
+    <mat-error *ngIf="this.passwordRepeat.hasError('required') && !registerForm.hasError('equalFields')">
       Password is <strong>required</strong>
     </mat-error>
-    <mat-error *ngIf="form.hasError('equalFields')">
+    <mat-error *ngIf="registerForm.hasError('equalFields')">
       Passwords <strong>don't match</strong>
     </mat-error>
   </mat-form-field>
-  <!-- BUTTON -->
-  <button mat-raised-button [disabled]="!form.valid || disabled" color="primary">
-    Sign Up
+  <button mat-raised-button [disabled]="!registerForm.valid || disabled" color="primary">
+    Register
   </button>
 </form>
