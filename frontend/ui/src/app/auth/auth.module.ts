@@ -14,7 +14,13 @@ import { LogoutConfirmationDialogComponent } from './components/logout-confirmat
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, StatusComponent, UnauthorizedComponent, LogoutConfirmationDialogComponent],
+  declarations: [
+    LoginComponent
+    , RegisterComponent
+    , StatusComponent
+    , UnauthorizedComponent
+    , LogoutConfirmationDialogComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -22,6 +28,12 @@ import { LogoutConfirmationDialogComponent } from './components/logout-confirmat
     MaterialModule,
     AuthRoutingModule
   ]
-  ,exports: [LoginComponent, RegisterComponent, StatusComponent, UnauthorizedComponent, LogoutConfirmationDialogComponent]
+  ,exports: [
+    LoginComponent
+    , RegisterComponent
+    , StatusComponent
+    , UnauthorizedComponent
+    , LogoutConfirmationDialogComponent
+  ]
 })
 export class AuthModule { }

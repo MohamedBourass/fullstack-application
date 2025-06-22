@@ -4,7 +4,7 @@ import { TokenStorageService } from 'src/app/core/token-storage.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';*/
 
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BasicErrorStateMatcher } from 'src/app/auth/error-state-matchers';
 import { SignInRequest } from 'src/app/auth/auth.model';
@@ -16,6 +16,36 @@ import { SignInRequest } from 'src/app/auth/auth.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {
+
+  @Input() disabled = false;
+  @Output() formSubmitted = new EventEmitter<SignInRequest>();
+  isPasswordVisible = false;
+
+  private formBuilder = inject(FormBuilder);
+
+  loginForm = this.formBuilder.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]],
+  });
+  matcher = new BasicErrorStateMatcher();
+
+  toggleVisibility(): void {
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
+
+  onFormSubmit(): void {
+    if (this.loginForm.valid) {
+      this.formSubmitted.emit(<SignInRequest>this.loginForm.value);
+    }
+  }
+
+  get email(): FormControl {
+    return this.loginForm.get('email')! as FormControl;
+  }
+  get password(): FormControl {
+    return this.loginForm.get('password')! as FormControl;
+  }
+
   /*loginForm!: FormGroup;
   credentials: { email: string, password: string } = { email: '', password: '' };
   errorMessage: string = '';
@@ -68,35 +98,5 @@ export class LoginComponent {
     });
   }*/
 
-  /* Input/Output */
-  @Input() disabled = false;
-  @Output() formSubmitted = new EventEmitter<SignInRequest>();
-  /* Password Visibility */
-  isPasswordVisible = false;
-  /* Form */
-  form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
-  });
-  matcher = new BasicErrorStateMatcher();
 
-  constructor(private fb: FormBuilder) {}
-
-  toggleVisibility(): void {
-    this.isPasswordVisible = !this.isPasswordVisible;
-  }
-
-  onFormSubmit(): void {
-    if (this.form.valid) {
-      this.formSubmitted.emit(<SignInRequest>this.form.value);
-    }
-  }
-
-  /* Getters to access form controls */
-  get email(): FormControl {
-    return this.form.get('email')! as FormControl;
-  }
-  get password(): FormControl {
-    return this.form.get('password')! as FormControl;
-  }
 }
