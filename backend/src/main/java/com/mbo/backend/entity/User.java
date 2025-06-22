@@ -16,12 +16,12 @@ import java.util.*;
 
 @Entity
 @Table(
-        name = "`user`",
+        name = "`USER`",
         uniqueConstraints = {
                 @UniqueConstraint(name = "email_unique", columnNames = "email")
         }
 )
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 @Data
 @Builder
 @ToString

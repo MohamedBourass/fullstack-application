@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
@@ -11,7 +11,7 @@ import { JwtService } from 'src/app/core/jwt.service';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor(private jwtService: JwtService) {}
+  private jwtService =  inject(JwtService);
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const token = this.jwtService.getToken();

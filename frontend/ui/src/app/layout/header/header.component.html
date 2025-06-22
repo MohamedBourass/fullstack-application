@@ -1,27 +1,20 @@
 <mat-toolbar color="primary" class="mat-elevation-z8 position-fixed" style="width: 100%;">
-    <!-- BRAND -->
     <mat-icon fontIcon="local_mall"></mat-icon>
     <span>{{ title }}</span>
-
-    <!-- NAV -->
     <nav>
         <a mat-button routerLink="/">Home</a>
         <a mat-button routerLink="/item">Items</a>
-        <a mat-button *ngIf="authService.isAuthenticated$" routerLink="/profile">Profile</a>
-        <a mat-button *ngIf="!authService.isAuthenticated$" routerLink="/register">Register</a>
-        <a mat-button *ngIf="authService.isAuthenticated$" (click)="logout()">Logout</a>
+        <a mat-button *ngIf="(authService.isAuthenticated$ | async)" routerLink="/profile">Profile</a>
+        <a mat-button *ngIf="!(authService.isAuthenticated$ | async)" routerLink="/register">Register</a>
+        <a mat-button *ngIf="(authService.isAuthenticated$ | async)" (click)="logout()">Logout</a>
     </nav>
-
     <span class="spacer"></span>
-
-    <!-- !isLogged: AUTHENTICATE -->
     <div class="auth-info-container">
-      <a *ngIf="!authService.isAuthenticated$" mat-raised-button routerLink="/login" routerLinkActive="router-link-active" color="accent">Authenticate</a>
+      <a *ngIf="!(authService.isAuthenticated$ | async)" mat-raised-button routerLink="/login" routerLinkActive="router-link-active" color="accent">Authenticate</a>
     </div>
 
-    <!-- isLogged: PROFILE MENU -->
     <div class="auth-info-container">
-      <div *ngIf="authService.isAuthenticated$" class="container">
+      <div *ngIf="(authService.isAuthenticated$ | async)" class="container">
         <small>{{((currentUser$ | async)?.email | titlecase) || "-"}} {{((currentUser$ | async)?.email | titlecase) || "-"}}</small>
         <button mat-icon-button [matMenuTriggerFor]="menu">
             <mat-icon>account_circle</mat-icon>

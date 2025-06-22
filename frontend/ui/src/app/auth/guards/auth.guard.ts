@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from 'src/app/core/auth.service';
 
@@ -6,7 +6,14 @@ import { AuthService } from 'src/app/core/auth.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+
+  /*constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}*/
+
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
 
@@ -23,7 +30,7 @@ export class AuthGuard implements CanActivate {
       if (!this.authService.isAuthenticated$) {
         return true;
       } else {
-        this.router.navigate(['/unauthorized']); // Redirection si connecté
+        this.router.navigate(['/unauthorized']);
         return false;
       }
     }

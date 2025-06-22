@@ -15,13 +15,11 @@ import { MaterialModule } from './material.module';
 //Custom modules
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './features/home/home.module';
-import { ProfileComponent } from './features/profile/profile.component';
 import { ErrorModule } from './features/error/error.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProfileComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
