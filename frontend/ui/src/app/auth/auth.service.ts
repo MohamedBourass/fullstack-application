@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   // POST /auth/register {credentials}
-  public signUp$(credentials: SignUpRequest): Observable<boolean> {
+  public register(credentials: SignUpRequest): Observable<boolean> {
     return this.http
       .post<SignUpResponse>(`${this.API_URL}/register`, credentials)
       .pipe(
@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   // POST /auth/authenticate {credentials}
-  public signIn$(credentials: SignInRequest): Observable<boolean> {
+  public login(credentials: SignInRequest): Observable<boolean> {
     return this.http
       .post<SignInResponse>(`${this.API_URL}/login`, credentials)
       .pipe(

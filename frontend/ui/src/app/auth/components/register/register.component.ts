@@ -43,14 +43,18 @@ export class RegisterComponent {
   }
 
   onFormSubmit(): void {
-    console.log('Form submitted!');
-    /*if (this.registerForm.valid) {
-      console.log('Form valid!');
-      const signUpCredentials = this.registerForm.value;o
-      console.log('signUpCredentials=' + JSON.stringify(signUpCredentials));
-      delete signUpCredentials.passwordRepeat;
-      this.formSubmitted.emit(signUpCredentials);
-    }*/
+    console.log("Form submitted! Credentials="+JSON.stringify(this.registerForm.value));
+    this.authService.register(this.registerForm.value).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        //this.isSuccessful = true;
+        //this.isSignUpFailed = false;
+      },
+      error: (err: any) => {
+        //this.errorMessage = err.error.message;
+        //this.isSignUpFailed = true;
+      }
+    });
   }
 
   /*onRegister() {

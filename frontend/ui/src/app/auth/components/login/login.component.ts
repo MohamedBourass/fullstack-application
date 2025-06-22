@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';*/
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { BasicErrorStateMatcher } from 'src/app/auth/error-state-matchers';
-//import { SignInRequest } from 'src/app/auth/auth.model';
 
 @Component({
   selector: 'app-login'
@@ -16,15 +15,21 @@ import { BasicErrorStateMatcher } from 'src/app/auth/error-state-matchers';
 })
 export class LoginComponent {
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder
+  ) {}
 
-  @Input() disabled = false;
+  @Input() disabled: boolean = false;
   //@Output() formSubmitted = new EventEmitter<SignInRequest>();
-  isPasswordVisible = false;
+  isPasswordVisible: boolean = false;
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
+    password: ['', [
+      Validators.required
+      ,Validators.minLength(8)
+      //,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).+$/) // ✅ Complexité : 1 majuscule, 1 minuscule, 1 chiffre, 1 symbole
+    ]],
   });
   matcher = new BasicErrorStateMatcher();
 
@@ -55,17 +60,6 @@ export class LoginComponent {
     private router: Router,
     private fb: FormBuilder
     ) {}
-
-  ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], // ✅ Vérifie la forme de l'email
-      password: ['', [
-        Validators.required
-        //,Validators.minLength(8) // ✅ Minimum 8 caractères
-        //,Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).+$/) // ✅ Complexité : 1 majuscule, 1 minuscule, 1 chiffre, 1 symbole
-      ]]
-    });
-  }
 
   onLogin() {
     this.authService.login(this.credentials).subscribe({

@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, Subject, catchError, filter, map, of, swit
 import { CategoryService } from 'src/app/core/category.service';
 import { ItemService } from 'src/app/core/item.service';
 import { Item } from 'src/app/shared/models/item.model';
-import { Status } from 'src/app/auth/status.model';
+import { Status } from 'src/app/shared/models/status.model';
 
 @Component({
   selector: 'app-detail',
