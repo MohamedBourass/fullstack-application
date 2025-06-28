@@ -1,4 +1,4 @@
-<!--<div class="register-container">
+<div class="register-container">
   <h2>Inscription</h2>
   <form (ngSubmit)="onRegister()">
     <div class="form-group">
@@ -19,7 +19,8 @@
     <button type="submit">S'inscrire</button>
   </form>
   <p>Déjà inscrit ? <a routerLink="/login">Connectez-vous ici</a></p>
-</div>-->
+</div>
+<!--
 <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
   <mat-form-field>
     <mat-label>Email</mat-label>
@@ -34,21 +35,21 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Name</mat-label>
+    <mat-label>Firstname</mat-label>
     <mat-icon matPrefix color="primary">person</mat-icon>
-    <input matInput type="text" formControlName="name"
+    <input matInput type="text" formControlName="firstname"
            placeholder="John" [errorStateMatcher]="basicErrorStateMatcher"/>
-    <mat-error *ngIf="this.name.hasError('required')">
-      Name is <strong>required</strong>
+    <mat-error *ngIf="this.firstname.hasError('required')">
+      Firstname is <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Surname</mat-label>
+    <mat-label>Lastname</mat-label>
     <mat-icon matPrefix color="primary">person</mat-icon>
-    <input matInput type="text" formControlName="surname"
+    <input matInput type="text" formControlName="lastname"
            placeholder="Doe" [errorStateMatcher]="basicErrorStateMatcher"/>
-    <mat-error *ngIf="this.surname.hasError('required')">
-      Surname is <strong>required</strong>
+    <mat-error *ngIf="this.lastname.hasError('required')">
+      Lastname is <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <mat-form-field>
@@ -82,3 +83,4 @@
     Register
   </button>
 </form>
+-->

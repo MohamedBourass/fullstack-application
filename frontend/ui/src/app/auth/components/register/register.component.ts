@@ -24,8 +24,8 @@ export class RegisterComponent {
 
   registerForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    name: ['', [Validators.required]],
-    surname: ['', [Validators.required]],
+    firstname: ['', [Validators.required]],
+    lastname: ['', [Validators.required]],
     password: ['', [Validators.required]],
     passwordRepeat: ['', [Validators.required]],
   }, {
@@ -66,11 +66,11 @@ export class RegisterComponent {
   get email(): FormControl {
     return this.registerForm.get('email')! as FormControl;
   }
-  get name(): FormControl {
-    return this.registerForm.get('name')! as FormControl;
+  get firstname(): FormControl {
+    return this.registerForm.get('firstname')! as FormControl;
   }
-  get surname(): FormControl {
-    return this.registerForm.get('surname')! as FormControl;
+  get lastname(): FormControl {
+    return this.registerForm.get('lastname')! as FormControl;
   }
   get password(): FormControl {
     return this.registerForm.get('password')! as FormControl;

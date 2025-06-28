@@ -2,20 +2,20 @@ export type Mode = 'signin' | 'signup';
 
 export interface SignInRequest {
     email: string;
-    password: string; 
+    password: string;
 }
 
 export interface SignUpRequest {
     email: string;
-    name: string;
-    surname: string;
-    password: string; 
+    firstname: string;
+    lastname: string;
+    password: string;
 }
 
 export interface User {
     email: string;
-    name: string;
-    surname: string;
+    firstname: string;
+    lastname: string;
 }
 
 export interface SignInResponse {
