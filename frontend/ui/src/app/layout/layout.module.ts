@@ -10,8 +10,8 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     HeaderComponent
     , FooterComponent
-    ],
-  imports: [
+    ]
+  ,imports: [
     CommonModule,
     MaterialModule,
     RouterModule

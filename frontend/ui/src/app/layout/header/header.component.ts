@@ -32,10 +32,7 @@ export class HeaderComponent implements OnDestroy {
 
   logout(): void {
     const dialogRef = this.dialog.open(LogoutConfirmationDialogComponent);
-    dialogRef.afterClosed()
-      .pipe(
-        takeUntil(this.destroy$))
-      .subscribe(result => {
+    dialogRef.afterClosed().pipe(takeUntil(this.destroy$)).subscribe(result => {
         if(result) {
           this.authService.logout();
         }
