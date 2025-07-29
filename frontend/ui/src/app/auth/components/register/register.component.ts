@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 })
 export class RegisterComponent {
 
-  constructor(
+  /*constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService
   ) {}
@@ -57,11 +57,11 @@ export class RegisterComponent {
     });
   }
 
-  /*onRegister() {
+  onRegister() {
     this.authService.register(this.userData).subscribe(response => {
       console.log('User registered successfully');
     });
-  }*/
+  }
 
   get email(): FormControl {
     return this.registerForm.get('email')! as FormControl;
@@ -77,5 +77,35 @@ export class RegisterComponent {
   }
   get passwordRepeat(): FormControl {
     return this.registerForm.get('passwordRepeat')! as FormControl;
+  }*/
+
+  userData: any = {
+    name: null,
+    email: null,
+    password: null
+  };
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit(): void {
+  }
+
+  onRegister(): void {
+    const { username, email, password } = this.userData;
+
+    this.authService.register(username, email, password).subscribe({
+      next: data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      error: err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    });
   }
 }

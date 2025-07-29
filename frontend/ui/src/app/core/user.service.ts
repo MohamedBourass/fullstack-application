@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, delay } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { User } from '../shared/models/auth.model';
+import { User } from '@app/shared/models/auth.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/core/auth.service';
-import { TokenStorageService } from 'src/app/core/token-storage.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { AuthService } from 'src/app/auth/auth.service';
+import { TokenStorageService } from 'src/app/core/token-storage.service';
 
 /*import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
@@ -24,11 +25,11 @@ export class LoginComponent {
     private tokenStorage: TokenStorageService,
     private router: Router,
     private fb: FormBuilder
-    ) {}
+  ) {}
 
   onLogin() {
-    this.authService.login(this.credentials).subscribe({
-      next: response => {
+    this.authService.login(this.credentials.email, this.credentials.password).subscribe({
+      next: (response: any) => {
         console.log('Server response: ', response);
         if(response.token) {
           this.tokenStorage.saveToken(response.token);
@@ -44,13 +45,13 @@ export class LoginComponent {
           console.error('User is undefined !');
           return;
         }
-        if(this.authService.isLoggedIn()) {
+        /*if(this.authService.isLoggedIn()) {
           this.router.navigate(['/profile']);
         } else {
           this.errorMessage = 'Invalid credentials. Please retry.'
-        }
+        }*/
       },
-      error: err => {
+      error: (err: any) => {
         console.error('Error login: ', err);
       }
     });

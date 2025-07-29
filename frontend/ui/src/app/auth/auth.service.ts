@@ -6,11 +6,19 @@ import { environment } from 'src/environments/environment';
 import { JwtService } from 'src/app/core/jwt.service';
 import { Router } from '@angular/router';
 
+const AUTH_API = 'http://localhost:8080/api/auth/';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private API_URL = `${environment.apiUrl}/auth`;
+
+  public isAuthenticated$: boolean = true;
+
+  private jwtService = inject(JwtService);
+  private router = inject(Router);
+
+  /*private API_URL = `${environment.apiUrl}/auth`;
 
   private http = inject(HttpClient);
   private jwtService = inject(JwtService);
@@ -55,6 +63,29 @@ export class AuthService {
     .pipe(
       tap((user) => (!!user ? this.currentUserSubject$.next(user) : EMPTY)), // (?) EMPTY or this.currentUserSubject$.next(null)
       catchError((err) => of(null))
-    );
+    );*/
+
+    constructor(private http: HttpClient) { }
+
+      public logout(): void {
+        this.jwtService.destroyToken();
+        //this.currentUserSubject$.next(null);
+        this.router.navigateByUrl('/');
+      }
+
+    login(username: string, password: string): Observable<any> {
+      return this.http.post(AUTH_API + 'signin', {
+        username,
+        password
+      });
+    }
+
+    register(username: string, email: string, password: string): Observable<any> {
+      return this.http.post(AUTH_API + 'signup', {
+        username,
+        email,
+        password
+      });
+    }
 
 }

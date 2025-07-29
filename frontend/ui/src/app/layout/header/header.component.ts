@@ -15,14 +15,14 @@ import { catchError, tap } from 'rxjs/operators';
 export class HeaderComponent implements OnDestroy {
 
   @Input() title!: string;
-  currentUser$;
+ // currentUser$;
   private destroy$ = new Subject<void>();
 
   constructor(
     public authService: AuthService,
     public dialog: MatDialog
   ) {
-    this.currentUser$ = this.authService.currentUser$;
+    //this.currentUser$ = this.authService.currentUser$;
     }
 
   ngOnDestroy(): void {
