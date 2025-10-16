@@ -1,6 +1,6 @@
-package com.mbo.backend.repository;
+package com.mbo.backend.repositories;
 
-import com.mbo.backend.entity.Item;
+import com.mbo.backend.entities.Item;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.mbo.backend.entity;
+package com.mbo.backend.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;

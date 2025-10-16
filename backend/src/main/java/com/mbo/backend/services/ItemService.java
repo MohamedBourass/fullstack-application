@@ -1,6 +1,6 @@
-package com.mbo.backend.service;
+package com.mbo.backend.services;
 
-import com.mbo.backend.entity.Item;
+import com.mbo.backend.entities.Item;
 import org.springframework.data.domain.Page;
 
 import java.util.List;

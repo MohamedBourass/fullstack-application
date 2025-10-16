@@ -1,8 +1,8 @@
-package com.mbo.backend.service.impl;
+package com.mbo.backend.services.impl;
 
-import com.mbo.backend.entity.Category;
-import com.mbo.backend.repository.CategoryRepository;
-import com.mbo.backend.service.CategoryService;
+import com.mbo.backend.entities.Category;
+import com.mbo.backend.repositories.CategoryRepository;
+import com.mbo.backend.services.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.mbo.backend.service.impl;
+package com.mbo.backend.services.impl;
 
-import com.mbo.backend.entity.User;
+import com.mbo.backend.entities.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

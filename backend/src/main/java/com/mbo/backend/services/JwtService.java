@@ -1,4 +1,4 @@
-package com.mbo.backend.service;
+package com.mbo.backend.services;
 
 import io.jsonwebtoken.Claims;
 import org.springframework.security.core.userdetails.UserDetails;

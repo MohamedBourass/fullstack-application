@@ -1,10 +1,10 @@
-package com.mbo.backend.controller;
+package com.mbo.backend.controllers;
 
 import com.mbo.backend.dto.request.AuthenticationRequest;
 import com.mbo.backend.dto.request.RegisterRequest;
 import com.mbo.backend.dto.response.AuthenticationResponse;
 import com.mbo.backend.dto.response.BaseResponseBody;
-import com.mbo.backend.service.AuthService;
+import com.mbo.backend.services.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

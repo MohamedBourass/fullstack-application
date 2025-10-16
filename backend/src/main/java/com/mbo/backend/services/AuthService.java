@@ -1,4 +1,4 @@
-package com.mbo.backend.service;
+package com.mbo.backend.services;
 
 import com.mbo.backend.dto.request.AuthenticationRequest;
 import com.mbo.backend.dto.request.RegisterRequest;

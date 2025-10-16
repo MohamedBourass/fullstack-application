@@ -1,6 +1,6 @@
-package com.mbo.backend.service;
+package com.mbo.backend.services;
 
-import com.mbo.backend.entity.Category;
+import com.mbo.backend.entities.Category;
 
 import java.util.List;
 

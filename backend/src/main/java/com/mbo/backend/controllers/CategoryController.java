@@ -1,7 +1,7 @@
-package com.mbo.backend.controller;
+package com.mbo.backend.controllers;
 
-import com.mbo.backend.entity.Category;
-import com.mbo.backend.service.CategoryService;
+import com.mbo.backend.entities.Category;
+import com.mbo.backend.services.CategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

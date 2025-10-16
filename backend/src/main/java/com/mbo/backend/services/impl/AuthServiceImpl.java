@@ -1,16 +1,14 @@
-package com.mbo.backend.service.impl;
+package com.mbo.backend.services.impl;
 
 import com.mbo.backend.dto.request.AuthenticationRequest;
 import com.mbo.backend.dto.request.RegisterRequest;
 import com.mbo.backend.dto.response.AuthenticationResponse;
 import com.mbo.backend.dto.response.BaseResponseBody;
 
-import com.mbo.backend.exception.UserNotFoundException;
-
-import com.mbo.backend.entity.User;
-import com.mbo.backend.repository.UserRepository;
-import com.mbo.backend.service.AuthService;
-import com.mbo.backend.service.JwtService;
+import com.mbo.backend.entities.User;
+import com.mbo.backend.repositories.UserRepository;
+import com.mbo.backend.services.AuthService;
+import com.mbo.backend.services.JwtService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,8 +16,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

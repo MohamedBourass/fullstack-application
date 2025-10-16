@@ -1,6 +1,7 @@
 <mat-toolbar color="primary" class="mat-elevation-z8 position-fixed" style="width: 100%;">
     <mat-icon fontIcon="local_mall"></mat-icon>
     <span>{{ title }}</span>
+    <span class="spacer"></span>
     <nav>
         <a mat-button routerLink="/">Home</a>
         <a mat-button routerLink="/item">Items</a>
@@ -8,7 +9,6 @@
         <a mat-button routerLink="/register">Register</a>
         <a mat-button (click)="logout()">Logout</a>
     </nav>
-    <span class="spacer"></span>
     <div class="auth-info-container">
       <a  mat-raised-button routerLink="/login" routerLinkActive="router-link-active" color="accent">Authenticate</a>
     </div>

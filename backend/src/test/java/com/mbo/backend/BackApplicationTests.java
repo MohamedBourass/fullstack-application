@@ -1,8 +1,8 @@
 package com.mbo.backend;
 
 import com.mbo.backend.config.SecurityConfig;
-import com.mbo.backend.controller.UserController;
-import com.mbo.backend.entity.Category;
+import com.mbo.backend.controllers.UserController;
+import com.mbo.backend.entities.Category;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;

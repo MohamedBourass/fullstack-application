@@ -1,7 +1,7 @@
 package com.mbo.backend;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mbo.backend.entity.Item;
+import com.mbo.backend.entities.Item;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

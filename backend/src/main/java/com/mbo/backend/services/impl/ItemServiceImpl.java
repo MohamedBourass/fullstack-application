@@ -1,12 +1,10 @@
-package com.mbo.backend.service.impl;
+package com.mbo.backend.services.impl;
 
-import com.mbo.backend.entity.Item;
-import com.mbo.backend.repository.CategoryRepository;
-import com.mbo.backend.repository.ItemRepository;
-import com.mbo.backend.service.ItemService;
+import com.mbo.backend.entities.Item;
+import com.mbo.backend.repositories.CategoryRepository;
+import com.mbo.backend.repositories.ItemRepository;
+import com.mbo.backend.services.ItemService;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;

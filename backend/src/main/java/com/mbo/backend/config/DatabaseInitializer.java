@@ -1,12 +1,12 @@
 package com.mbo.backend.config;
 
-import com.mbo.backend.entity.Item;
-import com.mbo.backend.entity.Category;
-import com.mbo.backend.entity.User;
+import com.mbo.backend.entities.Item;
+import com.mbo.backend.entities.Category;
+import com.mbo.backend.entities.User;
 import com.mbo.backend.model.Role;
-import com.mbo.backend.repository.CategoryRepository;
-import com.mbo.backend.repository.ItemRepository;
-import com.mbo.backend.repository.UserRepository;
+import com.mbo.backend.repositories.CategoryRepository;
+import com.mbo.backend.repositories.ItemRepository;
+import com.mbo.backend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

@@ -1,10 +1,10 @@
-package com.mbo.backend.controller;
+package com.mbo.backend.controllers;
 
 import com.mbo.backend.dto.request.ItemRequest;
 import com.mbo.backend.dto.response.ItemResponse;
 import com.mbo.backend.dto.response.PageableResponse;
-import com.mbo.backend.entity.Item;
-import com.mbo.backend.service.ItemService;
+import com.mbo.backend.entities.Item;
+import com.mbo.backend.services.ItemService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

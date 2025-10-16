@@ -1,14 +1,8 @@
 package com.mbo.backend.deprecated;
 
-import com.mbo.backend.service.impl.JwtUtil;
-import com.mbo.backend.entity.User;
-import com.mbo.backend.repository.UserRepository;
-import com.mbo.backend.service.impl.AuthServiceImpl;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.Map;
+import com.mbo.backend.services.impl.JwtUtil;
+import com.mbo.backend.repositories.UserRepository;
+import com.mbo.backend.services.impl.AuthServiceImpl;
 
 //@RestController
 //@RequestMapping("/api/v1/auth")

@@ -1,7 +1,7 @@
-package com.mbo.backend.controller;
+package com.mbo.backend.controllers;
 
-import com.mbo.backend.entity.User;
-import com.mbo.backend.repository.UserRepository;
+import com.mbo.backend.entities.User;
+import com.mbo.backend.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.CrossOrigin;

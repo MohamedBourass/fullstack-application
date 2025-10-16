@@ -1,11 +1,11 @@
-package com.mbo.backend.service.impl;
+package com.mbo.backend.services.impl;
 
 import com.mbo.backend.dto.request.UserUpdateRequest;
-import com.mbo.backend.entity.User;
+import com.mbo.backend.entities.User;
 import com.mbo.backend.exception.UserNotAuthenticatedException;
 import com.mbo.backend.exception.UserNotFoundException;
-import com.mbo.backend.repository.UserRepository;
-import com.mbo.backend.service.UserService;
+import com.mbo.backend.repositories.UserRepository;
+import com.mbo.backend.services.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.security.core.Authentication;
