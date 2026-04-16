@@ -13,19 +13,20 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.time.LocalDateTime;
 import java.util.*;
 
-@Entity
-@Table(
-        name = "`USER`",
-        uniqueConstraints = {
-                @UniqueConstraint(name = "email_unique", columnNames = "email")
-        }
-)
+
 //@EntityListeners(AuditingEntityListener.class)
-@Data
+@Getter
+@Setter
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "users",
+    uniqueConstraints = {
+        @UniqueConstraint(name = "email_unique", columnNames = "email")
+    }
+)
 public class User implements UserDetails {
 
     @Id
@@ -92,24 +93,4 @@ public class User implements UserDetails {
     @Builder.Default
     @Column(name = "timestamp")
     private LocalDateTime timestamp = LocalDateTime.now();
-
-    /*@CreatedBy
-    private String createdBy;
-
-    @CreatedDate
-    private Instant createdDate;
-
-    @LastModifiedBy
-    private String lastModifiedBy;
-
-    @LastModifiedDate
-    private Instant lastModifiedDate;*/
-
-    //@CreationTimestamp
-    //@Temporal(TemporalType.TIMESTAMP)
-    //@Column(name = "creationdate", nullable = false)
-    //private Date creationDate;
-
-    //@Temporal(TemporalType.TIMESTAMP)
-    //@Column(name = "modificationdate", nullable = false)
 }

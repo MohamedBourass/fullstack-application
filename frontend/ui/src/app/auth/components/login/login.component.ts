@@ -1,20 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthService } from 'src/app/auth/auth.service';
 import { TokenStorageService } from 'src/app/core/token-storage.service';
-
-/*import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { BasicErrorStateMatcher } from 'src/app/auth/error-state-matchers';*/
 
 @Component({
   selector: 'app-login'
   , templateUrl: './login.component.html'
   , styleUrls: ['../../auth.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   credentials: { email: string, password: string } = { email: '', password: '' };
@@ -26,6 +22,9 @@ export class LoginComponent {
     private router: Router,
     private fb: FormBuilder
   ) {}
+
+  ngOnInit(): void {
+  }
 
   onLogin() {
     this.authService.login(this.credentials.email, this.credentials.password).subscribe({
@@ -62,7 +61,7 @@ export class LoginComponent {
   ) {}
 
   @Input() disabled: boolean = false;
-  //@Output() formSubmitted = new EventEmitter<SignInRequest>();
+  @Output() formSubmitted = new EventEmitter<SignInRequest>();
   isPasswordVisible: boolean = false;
 
   loginForm = this.formBuilder.group({

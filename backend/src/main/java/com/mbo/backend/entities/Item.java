@@ -10,16 +10,16 @@ import java.util.Objects;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Getter
 @Setter
-@ToString
+@Builder
+@ToString(exclude = "category")
 @Entity
-@Table(name = "item")
+@Table(name = "items")
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

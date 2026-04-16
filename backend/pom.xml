@@ -5,7 +5,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.12</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <artifactId>backend</artifactId>
     <version>0.0.2-SNAPSHOT</version>
@@ -14,7 +14,7 @@
     <description>Backend project</description>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
+        <java.version>21</java.version>
         <cucumber.version>7.20.1</cucumber.version>
         <junit-jupiter.version>5.11.4</junit-jupiter.version>
         <scala.version>2.13</scala.version>

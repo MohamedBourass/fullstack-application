@@ -16,8 +16,14 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashSet;
+import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
@@ -68,6 +74,27 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public BaseResponseBody register(RegisterRequest request) {
-        return null;
+        // Vérifier si l'utilisateur existe déjà
+        if (userRepository.existsByEmail(request.getEmail())) {
+            return BaseResponseBody.builder()
+                    .message("Email already registered")
+                    .build();
+        }
+        
+        // Créer et configurer le nouvel utilisateur
+        User user = User.builder()
+                .firstname(request.getFirstname())
+                .lastname(request.getLastname())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .roles(new HashSet<>(List.of(com.mbo.backend.model.Role.USER)))
+                .build();
+        
+        // Sauvegarder l'utilisateur
+        userRepository.save(user);
+        
+        return BaseResponseBody.builder()
+                .message("User registered successfully")
+                .build();
     }
 }

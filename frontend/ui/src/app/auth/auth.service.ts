@@ -65,27 +65,27 @@ export class AuthService {
       catchError((err) => of(null))
     );*/
 
-    constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-      public logout(): void {
-        this.jwtService.destroyToken();
-        //this.currentUserSubject$.next(null);
-        this.router.navigateByUrl('/');
-      }
+  public logout(): void {
+    this.jwtService.destroyToken();
+    //this.currentUserSubject$.next(null);
+    this.router.navigateByUrl('/');
+  }
 
-    login(username: string, password: string): Observable<any> {
-      return this.http.post(AUTH_API + 'signin', {
-        username,
-        password
-      });
-    }
+  login(username: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'authenticate', {
+      username,
+      password
+    });
+  }
 
-    register(username: string, email: string, password: string): Observable<any> {
-      return this.http.post(AUTH_API + 'signup', {
-        username,
-        email,
-        password
-      });
-    }
+  register(username: string, email: string, password: string): Observable<any> {
+    return this.http.post(AUTH_API + 'signup', {
+      username,
+      email,
+      password
+    });
+  }
 
 }
