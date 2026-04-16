@@ -1,15 +1,13 @@
 package com.mbo.backend.controllers;
 
-import com.mbo.backend.dto.request.AuthenticationRequest;
-import com.mbo.backend.dto.request.RegisterRequest;
-import com.mbo.backend.dto.response.AuthenticationResponse;
-import com.mbo.backend.dto.response.BaseResponseBody;
+import com.mbo.backend.dto.AuthRequest;
+import com.mbo.backend.dto.AuthResponse;
+import com.mbo.backend.dto.BaseResponse;
+import com.mbo.backend.dto.RegisterDto;
 import com.mbo.backend.services.AuthService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -24,14 +22,9 @@ public class AuthController {
 
     private final AuthService authenticationService;
 
-    @Bean
-    public ModelMapper modelMapper() {
-        return new ModelMapper();
-    }
-
     @PostMapping("/register")
-    public ResponseEntity<BaseResponseBody> register(
-            @Valid @RequestBody RegisterRequest request
+    public ResponseEntity<BaseResponse> register(
+            @Valid @RequestBody RegisterDto request
     ) throws Exception {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -39,8 +32,8 @@ public class AuthController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(
-            @Valid @RequestBody AuthenticationRequest request
+    public ResponseEntity<AuthResponse> authenticate(
+            @Valid @RequestBody AuthRequest request
     ) throws BadCredentialsException {
         return ResponseEntity
                 .status(HttpStatus.OK)

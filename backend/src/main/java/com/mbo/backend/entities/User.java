@@ -1,5 +1,6 @@
 package com.mbo.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.mbo.backend.model.Role;
 import jakarta.persistence.*;
@@ -14,11 +15,10 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 
-//@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 @Builder
-@ToString
+@ToString(exclude = {"password", "roles"})
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -51,12 +51,13 @@ public class User implements UserDetails {
     private String email;
 
     @NotBlank
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)  // Cache en lecture JSON
     @Size(max = 256)
     @Column(name = "password")
     private String password;
 
     @ElementCollection(fetch = FetchType.EAGER)
+    @JsonIgnore  // Cache les roles pour la sécurité
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
 

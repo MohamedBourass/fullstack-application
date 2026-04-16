@@ -1,8 +1,8 @@
 package com.mbo.backend.controllers;
 
-import com.mbo.backend.dto.request.ItemRequest;
-import com.mbo.backend.dto.response.ItemResponse;
-import com.mbo.backend.dto.response.PageableResponse;
+import com.mbo.backend.dto.ItemDto;
+import com.mbo.backend.dto.ItemViewDto;
+import com.mbo.backend.dto.PageableDto;
 import com.mbo.backend.entities.Item;
 import com.mbo.backend.services.ItemService;
 import jakarta.validation.Valid;
@@ -29,7 +29,7 @@ public class ItemController {
     // GET api/v1/item?q={Abc}
     @SneakyThrows
     @GetMapping
-    public ResponseEntity<PageableResponse> getItems(
+    public ResponseEntity<PageableDto> getItems(
             // @RequestParam(name = "category", required = false) String category,
             @RequestParam(name = "q", required = false) String query,
             @RequestParam(name = "pageNumber", required = true) Integer pageNumber, // -> pageIndex
@@ -37,7 +37,7 @@ public class ItemController {
     ) {
         // TODO: use modelMappings
         Page<Item> itemPage = itemService.getItems(query, pageNumber, pageSize);
-        PageableResponse<ItemResponse> pageableResponse = new PageableResponse<ItemResponse>(itemPage.getTotalElements(), itemPage.getContent().stream().map(product -> modelMapper.map(product, ItemResponse.class)).toList());
+        PageableDto<ItemViewDto> pageableResponse = new PageableDto<ItemViewDto>(itemPage.getTotalElements(), itemPage.getContent().stream().map(product -> modelMapper.map(product, ItemViewDto.class)).toList());
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(pageableResponse);
@@ -45,7 +45,7 @@ public class ItemController {
 
     // POST api/v1/product {ProductRequest}
     @PostMapping
-    public ResponseEntity<ItemResponse> saveItem(@Valid @RequestBody ItemRequest itemRequest) {
+    public ResponseEntity<ItemViewDto> saveItem(@Valid @RequestBody ItemDto itemRequest) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(
@@ -53,18 +53,18 @@ public class ItemController {
                                 itemService.addItem(
                                         modelMapper.map(itemRequest, Item.class)
                                 ),
-                                ItemResponse.class
+                                ItemViewDto.class
                         )
                 );
     }
 
     // GET api/v1/product/{id}
     @GetMapping("/{id}")
-    public ResponseEntity<ItemResponse> getItemById(@PathVariable(name = "id") Long id) {
+    public ResponseEntity<ItemViewDto> getItemById(@PathVariable(name = "id") Long id) {
         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(
-                        modelMapper.map(itemService.getItemById(id), ItemResponse.class)
+                        modelMapper.map(itemService.getItemById(id), ItemViewDto.class)
                 );
     }
 }

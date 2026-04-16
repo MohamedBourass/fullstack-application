@@ -1,9 +1,9 @@
 package com.mbo.backend.services.impl;
 
-import com.mbo.backend.dto.request.AuthenticationRequest;
-import com.mbo.backend.dto.request.RegisterRequest;
-import com.mbo.backend.dto.response.AuthenticationResponse;
-import com.mbo.backend.dto.response.BaseResponseBody;
+import com.mbo.backend.dto.AuthRequest;
+import com.mbo.backend.dto.AuthResponse;
+import com.mbo.backend.dto.BaseResponse;
+import com.mbo.backend.dto.RegisterDto;
 
 import com.mbo.backend.entities.User;
 import com.mbo.backend.repositories.UserRepository;
@@ -48,7 +48,7 @@ public class AuthServiceImpl implements AuthService {
 
     @SneakyThrows
     @Override
-    public AuthenticationResponse authenticate(AuthenticationRequest request) throws BadCredentialsException {
+    public AuthResponse authenticate(AuthRequest request) throws BadCredentialsException {
         // Authenticate the user with the provided credentials
         try {
             authenticationManager.authenticate(
@@ -69,14 +69,14 @@ public class AuthServiceImpl implements AuthService {
         String jwt = jwtService.generateToken(user);
 
         // Create and return success response
-        return new AuthenticationResponse(jwt);
+        return new AuthResponse(jwt);
     }
 
     @Override
-    public BaseResponseBody register(RegisterRequest request) {
+    public BaseResponse register(RegisterDto request) {
         // Vérifier si l'utilisateur existe déjà
         if (userRepository.existsByEmail(request.getEmail())) {
-            return BaseResponseBody.builder()
+            return BaseResponse.builder()
                     .message("Email already registered")
                     .build();
         }
@@ -93,7 +93,7 @@ public class AuthServiceImpl implements AuthService {
         // Sauvegarder l'utilisateur
         userRepository.save(user);
         
-        return BaseResponseBody.builder()
+        return BaseResponse.builder()
                 .message("User registered successfully")
                 .build();
     }
