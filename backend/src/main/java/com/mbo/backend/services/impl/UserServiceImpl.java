@@ -1,6 +1,5 @@
 package com.mbo.backend.services.impl;
 
-import com.mbo.backend.dto.UserUpdateDto;
 import com.mbo.backend.entities.User;
 import com.mbo.backend.exception.UserNotAuthenticatedException;
 import com.mbo.backend.exception.UserNotFoundException;
@@ -35,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @SneakyThrows
     @Override
-    public User updateUser(UserUpdateDto userUpdateRequest) {
+    public User updateUser(User userUpdateRequest) {
         // Check user authentication
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null) {

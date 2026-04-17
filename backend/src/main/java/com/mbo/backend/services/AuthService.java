@@ -1,12 +1,11 @@
 package com.mbo.backend.services;
 
-import com.mbo.backend.dto.AuthRequest;
-import com.mbo.backend.dto.AuthResponse;
-import com.mbo.backend.dto.BaseResponse;
-import com.mbo.backend.dto.RegisterDto;
+import com.mbo.backend.dto.UserDto;
 import org.springframework.security.authentication.BadCredentialsException;
 
+import java.util.Map;
+
 public interface AuthService {
-    AuthResponse authenticate(AuthRequest request) throws BadCredentialsException;
-    BaseResponse register(RegisterDto request);
+    Map<String, String> authenticate(String email, String password) throws BadCredentialsException;
+    String register(UserDto request);
 }

@@ -1,9 +1,6 @@
 package com.mbo.backend.services.impl;
 
-import com.mbo.backend.dto.AuthRequest;
-import com.mbo.backend.dto.AuthResponse;
-import com.mbo.backend.dto.BaseResponse;
-import com.mbo.backend.dto.RegisterDto;
+import com.mbo.backend.dto.UserDto;
 
 import com.mbo.backend.entities.User;
 import com.mbo.backend.repositories.UserRepository;
@@ -20,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.List;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -48,13 +45,13 @@ public class AuthServiceImpl implements AuthService {
 
     @SneakyThrows
     @Override
-    public AuthResponse authenticate(AuthRequest request) throws BadCredentialsException {
+    public Map<String, String> authenticate(String email, String password) throws BadCredentialsException {
         // Authenticate the user with the provided credentials
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            request.getEmail(),
-                            request.getPassword()
+                            email,
+                            password
                     )
             );
         } catch (BadCredentialsException e) {
@@ -63,22 +60,20 @@ public class AuthServiceImpl implements AuthService {
         // (user authentication successful at this point)
 
         // Get user from repository
-        User user = userRepository.findByEmail(request.getEmail()).orElseThrow(()->new BadCredentialsException("Cannot find email")); //TODO
+        User user = userRepository.findByEmail(email).orElseThrow(()->new BadCredentialsException("Cannot find email")); //TODO
 
         // Generate JWT token
         String jwt = jwtService.generateToken(user);
 
         // Create and return success response
-        return new AuthResponse(jwt);
+        return Map.of("token", jwt);
     }
 
     @Override
-    public BaseResponse register(RegisterDto request) {
+    public String register(UserDto request) {
         // Vérifier si l'utilisateur existe déjà
         if (userRepository.existsByEmail(request.getEmail())) {
-            return BaseResponse.builder()
-                    .message("Email already registered")
-                    .build();
+            return "Email already registered";
         }
         
         // Créer et configurer le nouvel utilisateur
@@ -93,8 +88,6 @@ public class AuthServiceImpl implements AuthService {
         // Sauvegarder l'utilisateur
         userRepository.save(user);
         
-        return BaseResponse.builder()
-                .message("User registered successfully")
-                .build();
+        return "User registered successfully";
     }
 }
