@@ -33,7 +33,7 @@ public class Item {
     @Column(name = "short_description")
     private String shortDescription;
 
-    @ManyToOne(fetch = FetchType.LAZY) // FetchType.EAGER
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 

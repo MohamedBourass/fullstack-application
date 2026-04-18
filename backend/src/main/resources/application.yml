@@ -34,14 +34,5 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      # Hibernate ddl auto (create, create-drop, validate, update)
       ddl-auto: create-drop
-    #defer-datasource-initialization: true
-    #generate-ddl: true #why ?
-    #properties:
-    #  hibernate:
-    #    show_sql: true
-    #  ddl-auto: none #why ?
-    #database-platform: org.hibernate.dialect.PostgreSQLDialect
     database-platform: org.hibernate.dialect.H2Dialect
-  #sql.init.mode: always

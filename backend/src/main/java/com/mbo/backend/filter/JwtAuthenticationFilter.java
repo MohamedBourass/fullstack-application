@@ -30,16 +30,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             @NonNull HttpServletResponse response,
             @NonNull FilterChain filterChain
     ) throws ServletException, IOException {
-        final String jwtToken;
-
-        // Extract JWT token from request's header
-        jwtToken = JwtUtils.getJwtFromRequest(request);
+        final String jwtToken = JwtUtils.getJwtFromRequest(request);
         if (jwtToken == null) {
-            filterChain.doFilter(request, response); // pass request and response to the next filter
-            return; // stop execution of that filter
+            filterChain.doFilter(request, response);
+            return;
         }
 
-        // Extract user username from JWT
         String userUsername = null;
         try {
             userUsername = jwtService.extractUsername(jwtToken);
@@ -47,8 +43,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             e.printStackTrace();
         }
 
-        if (userUsername != null && SecurityContextHolder.getContext().getAuthentication() == null) { // if user is already authenticated, I don't need to perform again all checks and setting (like update security context)
-            // Get user from db
+        if (userUsername != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = null;
             try {
                 userDetails = this.userDetailsService.loadUserByUsername(userUsername);
@@ -57,9 +52,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
 
             if (userDetails != null && jwtService.isTokenValid(jwtToken, userDetails)) {
-                log.error("In 2nd if");
-
-                // Update security context
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,

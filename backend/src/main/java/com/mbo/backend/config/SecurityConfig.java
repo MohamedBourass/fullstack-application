@@ -22,17 +22,6 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        //http.authorizeHttpRequests(auth -> auth
-        //                .requestMatchers("/api/v1/country").authenticated()
-        //                .anyRequest().permitAll())
-        //        .formLogin(Customizer.withDefaults());
-        //return http.build();
-
-        /*http.cors(Customizer.withDefaults()) // Active CORS
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth.anyRequest().permitAll());
-        return http.build();*/
-
         http.cors(Customizer.withDefaults()) // Active CORS
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
@@ -42,26 +31,6 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .headers(headers -> headers.frameOptions(frame -> frame.disable())); // Autorise l'affichage de H2 en iframe
 
-
-        /*http
-                .cors(Customizer.withDefaults()) // Active CORS
-                // Disable csrf
-                .csrf(csrf -> csrf.disable())
-                // Authorize http requests
-                //.authorizeHttpRequests()
-                // Allow unauthenticated access to these URLs (auth)
-                //.requestMatchers("/api/v1/auth/**")
-                //.permitAll()
-                // Require authentication for all other URLs
-                //.anyRequest()
-                //.authenticated()
-                //.and()
-                // Configure session management
-                .sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // STATELESS: new session for each request
-                // Set authentication provider
-                .authenticationProvider(authenticationProvider)
-                // Add jwtAuthFilter before the UsernamePasswordAuthenticationFilter
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);*/
 
         return http.build();
     }

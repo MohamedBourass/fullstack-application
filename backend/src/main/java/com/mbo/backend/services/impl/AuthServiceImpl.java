@@ -28,21 +28,6 @@ public class AuthServiceImpl implements AuthService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
-    /*public User register(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.getRoles().add(Role.USER);
-        return userRepository.save(user);
-    }
-
-    public Optional<User> login(String email, String password) {
-        return userRepository.findByEmail(email)
-                .filter(user -> passwordEncoder.matches(password, user.getPassword()));
-    }
-
-    public boolean isAdmin(User user) {
-        return user.getRoles().contains(Role.ADMIN);
-    }*/
-
     @SneakyThrows
     @Override
     public Map<String, String> authenticate(String email, String password) throws BadCredentialsException {
